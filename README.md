@@ -1,159 +1,65 @@
-# ppt-chatgpt-image-skill
+# Presentation Studio Skill
 
-> AI IDE Skill: 一句话生成带高质量配图的 PPT — 串联 [ppt-master](https://github.com/hugohe3/ppt-master) + [chatgpt-image-cli](https://github.com/Nikki99999999/chatgpt-image-cli)
+面向 AI IDE 的演示文稿生成 skill，用于从 PDF、DOCX、URL、Markdown 或用户直接输入的内容生成原生可编辑 PPTX。
 
+这版是在 PPT Master 的工程基础上继续优化的，不重新造轮子：保留“先生成 SVG，再导出原生可编辑 PPTX”的主流程，用 SVG 作为中间表示来降低 token 消耗、提高布局可控性，并让最终 PowerPoint 文件保留可编辑元素。
+
+## 主要能力
+
+- 先确认需求，再开始制作：Nine Confirmations 和 Ghost Deck 大纲必须先给用户确认。
+- 内容质量有规则：按场景选择 Minto / McKinsey、Duarte / Presentation Zen、Kawasaki 10/20/30 等叙事体系。
+- 视觉设计更强：借鉴 `zarazhangrui/frontend-slides` 的设计模板美学，并转成适合 PPT 的 SVG 模板资产。
+- 模板可沉淀：用户上传或确认过的模板可以登记、复用、形成私有模板库。
+- 生图策略可选：用户可在开始前选择 SVG、本机内置生图工具，或明确使用 ChatGPT Images 2.0、Nano Banana Pro、Seedream / Seedance 等高级网页模型。
+- 不冒充模型：如果宿主环境的内置生图工具没有明确披露模型，不把它称为 Image 2.0。
+- 防止重复生图：网页生图提交一次后轮询状态；超过 5 分钟仍未完成则交给人工检查，不刷新、不重复提交。
+- 最终统一审计：正式导出前统一检查内容、视觉、中文表达、SVG、备注和 PPTX 导出质量。
+- 尊重用户更新：如果用户手动改过 PPTX，后续修改必须基于用户最新版本，不能用旧 SVG 或旧 manifest 覆盖用户版本。
+
+## 使用方式
+
+在支持 skill / rules（规则）的 AI IDE 中，让 agent 先读取：
+
+```text
+SKILL.md
 ```
-"做一个 Claude Code 教程 PPT，深色科技风" → 25 分钟后拿到可编辑的 .pptx
+
+然后按流程制作 PPT。典型提示：
+
+```text
+请用 Presentation Studio Skill 做一份 6 页中文 PPT。
+先完成 Nine Confirmations，并在生成正式内容、设计稿、图片、SVG 或 PPTX 前，把 Ghost Deck 大纲给我确认。
 ```
 
-## What is this?
+## 目录结构
 
-一个 **Claude Code / Cursor / VS Code Copilot** 的 workflow skill，把两个独立工具串联成一条自动化流水线：
+```text
+SKILL.md                         核心工作流
+references/                      内容、视觉、生图、审计等规则
+scripts/                         SVG、PPTX、模板、质量检查等工具
+templates/                       内置模板、图标、图表和客户模板索引
+workflows/                       模板创建、PPT 美化、故障恢复等扩展流程
+requirements.txt                 Python 依赖
+.env.example                     可选生图后端配置示例
+```
 
-1. **[ppt-master](https://github.com/hugohe3/ppt-master)**（8000+ stars）— AI 驱动的 PPT 生成，输出原生可编辑 PPTX
-2. **[chatgpt-image-cli](https://github.com/Nikki99999999/chatgpt-image-cli)** — 通过浏览器自动化调用 ChatGPT Image 2.0 生图，零 API 费用
+## 推荐执行顺序
 
-串联后的效果：你说一句话，AI 自动完成**设计规划 → 图片生成 → 逐页排版 → 导出 PPTX**，全程无需手动操作。
+1. 读取 `SKILL.md`。
+2. 完成 Nine Confirmations。
+3. 输出 Ghost Deck，让用户确认大纲。
+4. 生成详细内容与视觉方案。
+5. 根据用户选择执行 SVG / 高级生图 / 混合生图。
+6. 运行内容、视觉、去 AI 味和导出质量检查。
+7. 导出原生可编辑 PPTX。
 
-## Why?
-
-| 痛点 | 解决 |
-|------|------|
-| ppt-master 默认用 Gemini API 生图，需要付费 API Key | 本 skill 用 ChatGPT Image 2.0，利用已有会员，零额外费用 |
-| ChatGPT Image 2.0 的中文文字渲染远优于 Gemini | 中文 PPT 配图质量大幅提升 |
-| 两个工具各自独立，手动串联繁琐 | 一个 skill 文件，AI 自动走完全流程 |
-
-## Requirements
-
-- **AI IDE**: Claude Code / Cursor / VS Code + Copilot（任一）
-- **Node.js >= 22**
-- **Python 3** + `pip install python-pptx`
-- **Google Chrome**
-- **ChatGPT Plus or Max membership**
-
-## Install
-
-### Step 1: Install dependencies
+## 依赖
 
 ```bash
-# ppt-master
-git clone https://github.com/hugohe3/ppt-master.git
-cd ppt-master && pip install -r requirements.txt
-
-# chatgpt-image-cli
-git clone https://github.com/Nikki99999999/chatgpt-image-cli.git
-cd chatgpt-image-cli && npm link
+pip install -r requirements.txt
 ```
 
-### Step 2: Install this skill
-
-```bash
-git clone https://github.com/Nikki99999999/ppt-chatgpt-image-skill.git
-```
-
-Copy `SKILL.md` into your AI IDE's skill directory:
-
-**Claude Code:**
-```bash
-cp ppt-chatgpt-image-skill/SKILL.md .claude/skills/workflow_ppt_with_chatgpt_image.md
-```
-
-**Cursor:**
-```bash
-cp ppt-chatgpt-image-skill/SKILL.md .cursor/rules/workflow_ppt_with_chatgpt_image.md
-```
-
-Then add a trigger in your project's `CLAUDE.md` (or equivalent):
-
-```markdown
-| 做 PPT 且要用 ChatGPT Image 2.0 配图 | `rules/skills/workflow_ppt_with_chatgpt_image.md` |
-```
-
-### Step 3: First-time setup (once)
-
-```bash
-chatgpt-image-setup
-```
-
-This launches Chrome with remote debugging and walks you through ChatGPT login. Cookies persist — you only need to do this once.
-
-## Usage
-
-In your AI IDE, just say:
-
-```
-做一个 Claude Code 功能介绍的 PPT，10 页，深色科技风，用 ChatGPT Image 2.0 配图
-```
-
-The AI will:
-1. Auto-launch Chrome + CDP proxy (if not running)
-2. Run ppt-master Strategist (design planning, asks you to confirm)
-3. Generate images with ChatGPT Image 2.0 (60-120s each)
-4. Run ppt-master Executor (SVG page generation)
-5. Export editable `.pptx`
-
-## How It Works
-
-```
-Your AI IDE
-    │
-    ├─ Phase 0: Environment Setup
-    │   └─ Chrome (9222) ← CDP Proxy (3456) ← chatgpt-image-cli
-    │
-    ├─ Phase 1: ppt-master Strategist
-    │   └─ 8 confirmations → design_spec.md + spec_lock.md
-    │
-    ├─ Phase 2: ChatGPT Image 2.0
-    │   └─ For each image: chatgpt-image -p <prompt> -o images/<file>
-    │
-    ├─ Phase 3: ppt-master Executor
-    │   └─ SVG pages (referencing generated images)
-    │
-    └─ Phase 4: Post-processing
-        └─ finalize_svg → svg_to_pptx → .pptx
-```
-
-## Workflow Details
-
-See [SKILL.md](SKILL.md) for the complete 4-phase workflow specification, including:
-- Environment auto-setup commands
-- Prompt writing rules for ChatGPT Image 2.0
-- Failure handling strategies
-- Chinese PPT garbled text fix
-- Troubleshooting table
-
-## FAQ
-
-### Q: Do I need an OpenAI API key?
-
-No. This skill uses your existing ChatGPT Plus/Max membership through browser automation. Zero API cost.
-
-### Q: Can I use this without Claude Code?
-
-Yes. The `SKILL.md` works as a workflow guide for any AI IDE that supports custom skills/rules — Cursor, VS Code + Copilot, Windsurf, etc.
-
-### Q: What if ChatGPT Image 2.0 fails on some images?
-
-The workflow has built-in failure handling: retry once with simplified prompt, then mark as `Needs-Manual` and continue. The PPT generation doesn't block on individual image failures.
-
-### Q: Chinese text in generated images looks wrong
-
-ChatGPT Image 2.0 is actually the **best** model for Chinese text rendering. Tips:
-- Use Chinese prompts for Chinese content: `画一张图：标题'xxx'`
-- Put Chinese text in quotes within the prompt
-- Keep prompts concise
-
-### Q: PPTX Chinese characters are garbled
-
-This is a ppt-master rendering issue (svglib), not image generation. Fix:
-```bash
-python3 scripts/svg_to_pptx.py <project> -s final --only native
-```
-
-## Related Projects
-
-- [ppt-master](https://github.com/hugohe3/ppt-master) — AI-driven natively editable PPTX generation
-- [chatgpt-image-cli](https://github.com/Nikki99999999/chatgpt-image-cli) — ChatGPT Image 2.0 CLI tool
+如果要使用网页端高级生图模型，还需要对应网页登录状态和浏览器访问能力。
 
 ## License
 

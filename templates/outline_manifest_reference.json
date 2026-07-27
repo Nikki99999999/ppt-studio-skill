@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "output_language": "zh-CN",
+  "framework": "minto",
+  "scenario": "decision",
+  "framework_rationale": "Why this primary framework matches the audience, occasion, and narrative goal.",
+  "secondary_checks": [],
+  "narrative_goal": "State the decision, belief, or action the audience should leave with.",
+  "decision_or_action": "The exact decision or action requested from the audience.",
+  "outline_approval": {
+    "required": true,
+    "status": "pending",
+    "approval_file": "outline_approval.md",
+    "approved_at": "",
+    "approved_by": "",
+    "approval_message": ""
+  },
+  "slides": [
+    {
+      "page": 1,
+      "role": "cover",
+      "action_title": "A conclusion-led title in the confirmed output language",
+      "single_point": "The one point this page must land.",
+      "visual_assumption": "Only the high-level visual direction needed for outline approval."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "output_language": "zh-CN",
+  "framework": "minto",
+  "scenario": "decision",
+  "framework_rationale": "Why this primary framework matches the audience, occasion, and narrative goal.",
+  "secondary_checks": [],
+  "narrative_goal": "State the decision, belief, or action the audience should leave with.",
+  "decision_or_action": "The exact decision or action requested from the audience.",
+  "approved_outline_file": "outline_manifest.json",
+  "silent_reading_review": {
+    "status": "pending",
+    "summary": "Explain whether visible slide copy can be understood without speaker notes.",
+    "critical_note_content_promoted_to_slides": []
+  },
+  "humanized_copy_review": {
+    "status": "pending",
+    "reference": "references/humanized-copy-review.md",
+    "score_50": 0,
+    "fixed_patterns": []
+  },
+  "allocation": {
+    "structure_percent": 40,
+    "content_percent": 30,
+    "design_percent": 30
+  },
+  "scqa": {
+    "situation": "",
+    "complication": "",
+    "question": "",
+    "answer": ""
+  },
+  "glance_test_seconds": 3,
+  "pitch_constraints": {
+    "core_slide_count": 10,
+    "duration_minutes": 20,
+    "minimum_font_size": 30
+  },
+  "slides": [
+    {
+      "page": 1,
+      "role": "cover",
+      "action_title": "A conclusion-led title",
+      "single_point": "The one point this page must land.",
+      "body_points": [
+        "Audience-facing slide copy that proves the Action Title."
+      ],
+      "evidence": [
+        {
+          "claim": "A factual or analytical support statement",
+          "source": "Source name, document, URL, or internal data reference"
+        }
+      ],
+      "source_footer": "Source: source name or internal reference"
+    }
+  ]
+}

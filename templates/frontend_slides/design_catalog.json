@@ -1,0 +1,173 @@
+﻿{
+  "schema_version": 1,
+  "source": {
+    "name": "Frontend Slides",
+    "repo": "https://github.com/zarazhangrui/frontend-slides",
+    "observed_date": "2026-07-23",
+    "license_note": "Use as design inspiration and selection metadata; rebuild Presentation Studio SVG templates instead of copying HTML runtime code."
+  },
+  "policy": {
+    "canvas": "ppt169",
+    "svg_viewbox": "0 0 1280 720",
+    "selection_flow": "Recommend exactly 3 visual directions before Strategy when template preference is unclear.",
+    "conversion_rule": "Map HTML slide aesthetics to PPT-safe SVG: inline SVG styles, no script, no CSS classes, no foreignObject, no animation."
+  },
+  "safe_presets": [
+    {
+      "slug": "bold-signal",
+      "name": "Bold Signal",
+      "scheme": "dark",
+      "formality": "medium",
+      "density": "low",
+      "mood": ["bold", "modern", "high-impact"],
+      "best_for": "Launch decks, keynote openers, confident short-form stories.",
+      "avoid_for": "Dense financial, legal, healthcare, or government reports."
+    },
+    {
+      "slug": "electric-studio",
+      "name": "Electric Studio",
+      "scheme": "mixed",
+      "formality": "medium-high",
+      "density": "medium",
+      "mood": ["professional", "clean", "high-contrast"],
+      "best_for": "Product briefings, technical sharing, polished business updates.",
+      "avoid_for": "Warm editorial or deliberately handcrafted decks."
+    },
+    {
+      "slug": "creative-voltage",
+      "name": "Creative Voltage",
+      "scheme": "dark",
+      "formality": "medium-low",
+      "density": "medium",
+      "mood": ["creative", "energetic", "retro-modern"],
+      "best_for": "Creative tech, community launches, demos that can carry visual energy.",
+      "avoid_for": "Formal institutional decks."
+    },
+    {
+      "slug": "dark-botanical",
+      "name": "Dark Botanical",
+      "scheme": "dark",
+      "formality": "medium-high",
+      "density": "low",
+      "mood": ["elegant", "sophisticated", "warm", "organic"],
+      "best_for": "Brand stories, culture decks, reflective keynotes, and premium lifestyle or wellness narratives.",
+      "avoid_for": "Dense tables, hard technical architecture, or highly regulated reporting."
+    },
+    {
+      "slug": "notebook-tabs",
+      "name": "Notebook Tabs",
+      "scheme": "light",
+      "formality": "medium",
+      "density": "medium-high",
+      "mood": ["editorial", "organized", "tactile"],
+      "best_for": "Training, workshops, learning notes, structured explainers.",
+      "avoid_for": "Ultra-formal executive reporting."
+    },
+    {
+      "slug": "pastel-geometry",
+      "name": "Pastel Geometry",
+      "scheme": "light",
+      "formality": "low",
+      "density": "medium",
+      "mood": ["friendly", "approachable", "soft", "geometric"],
+      "best_for": "Education, community updates, onboarding, and approachable product explainers.",
+      "avoid_for": "Authority-first executive, finance, or policy decks."
+    },
+    {
+      "slug": "split-pastel",
+      "name": "Split Pastel",
+      "scheme": "light",
+      "formality": "medium-low",
+      "density": "medium",
+      "mood": ["playful", "modern", "clear", "two-tone"],
+      "best_for": "Product walkthroughs, creator decks, feature comparisons, and light business storytelling.",
+      "avoid_for": "Dense analytical decks or serious institutional reports."
+    },
+    {
+      "slug": "vintage-editorial",
+      "name": "Vintage Editorial",
+      "scheme": "light",
+      "formality": "medium-high",
+      "density": "low",
+      "mood": ["editorial", "witty", "personality-driven"],
+      "best_for": "Founder narratives, brand storytelling, cultural and creative decks.",
+      "avoid_for": "Dense tables and compliance-heavy material."
+    },
+    {
+      "slug": "neon-cyber",
+      "name": "Neon Cyber",
+      "scheme": "dark",
+      "formality": "low",
+      "density": "medium",
+      "mood": ["futuristic", "neon", "cyber", "high-energy"],
+      "best_for": "Hackathons, AI demos, security talks, gaming, and speculative technology stories.",
+      "avoid_for": "Traditional business, healthcare, finance, or government decks."
+    },
+    {
+      "slug": "terminal-green",
+      "name": "Terminal Green",
+      "scheme": "dark",
+      "formality": "medium-low",
+      "density": "high",
+      "mood": ["developer-focused", "hacker", "technical", "retro-terminal"],
+      "best_for": "Developer talks, CLI/API explainers, infrastructure walkthroughs, and technical debugging stories.",
+      "avoid_for": "Non-technical audiences or brand decks that need visual warmth."
+    },
+    {
+      "slug": "swiss-modern",
+      "name": "Swiss Modern",
+      "scheme": "light",
+      "formality": "high",
+      "density": "medium",
+      "mood": ["precise", "minimal", "bauhaus"],
+      "best_for": "Research summaries, product strategy, architecture or systems talks.",
+      "avoid_for": "Decks that need warmth or playful texture."
+    },
+    {
+      "slug": "paper-and-ink",
+      "name": "Paper & Ink",
+      "scheme": "light",
+      "formality": "medium-high",
+      "density": "medium-low",
+      "mood": ["literary", "editorial", "quiet", "crafted"],
+      "best_for": "Long-form essays, research narratives, quotes, founder reflections, and thoughtful opinion decks.",
+      "avoid_for": "Fast product launches, dense dashboards, or neon/high-energy designs."
+    }
+  ],
+  "bold_templates": [
+    {"slug": "blue-professional", "name": "Blue Professional", "scheme": "light", "formality": "medium-high", "density": "medium", "mood": ["professional", "modern", "calm", "trustworthy"], "best_for": "B2B pitches, consulting updates, investor reports, research synthesis.", "avoid_for": "Hot, playful, intentionally informal decks."},
+    {"slug": "signal", "name": "Signal", "scheme": "mixed", "formality": "high", "density": "high", "mood": ["institutional", "trustworthy", "considered", "weighty"], "best_for": "Investor decks, board presentations, consulting deliverables, policy briefs.", "avoid_for": "Fast, playful, or loud creative decks."},
+    {"slug": "neo-grid-bold", "name": "Neo-Grid Bold", "scheme": "light", "formality": "medium", "density": "high", "mood": ["confident", "punchy", "editorial", "modern"], "best_for": "Design-led pitches, stat-heavy slides, comparisons, process flows.", "avoid_for": "Quiet traditional or warm institutional contexts."},
+    {"slug": "monochrome", "name": "Monochrome", "scheme": "light", "formality": "high", "density": "high", "mood": ["restrained", "literary", "archival"], "best_for": "Research synthesis, white papers, academic and policy briefs.", "avoid_for": "Color-led storytelling or decks needing strong personality."},
+    {"slug": "cobalt-grid", "name": "Cobalt Grid", "scheme": "light", "formality": "high", "density": "medium", "mood": ["editorial", "design-research", "studious"], "best_for": "Design research, trend reports, academic decks, architecture or art publications.", "avoid_for": "Warm, casual, or multi-color energetic decks."},
+    {"slug": "vellum", "name": "Vellum", "scheme": "dark", "formality": "high", "density": "low", "mood": ["scholarly", "literary", "quiet", "intellectual"], "best_for": "Research synthesis, founder reflections, advisory long-form, policy briefs.", "avoid_for": "Decks needing visual heat or pop."},
+    {"slug": "soft-editorial", "name": "Soft Editorial", "scheme": "light", "formality": "high", "density": "low", "mood": ["literary", "elegant", "quiet", "warm-classical"], "best_for": "Editorial features, long-form brand stories, museum or gallery decks.", "avoid_for": "Urgent, stat-heavy, or punchy business reporting."},
+    {"slug": "editorial-forest", "name": "Editorial Forest", "scheme": "mixed", "formality": "medium", "density": "medium", "mood": ["editorial", "quiet", "warm", "intentional"], "best_for": "Quarterly reviews, team retrospectives, creative agency readouts.", "avoid_for": "Urgent sales decks or high-energy launches."},
+    {"slug": "emerald-editorial", "name": "Emerald Editorial", "scheme": "mixed", "formality": "medium-high", "density": "medium", "mood": ["editorial", "confident", "magazine-cover"], "best_for": "Leadership readouts, strategy briefings, product launches with gravitas.", "avoid_for": "Neutral institutional decks where style should recede."},
+    {"slug": "editorial-tri-tone", "name": "Editorial Tri-Tone", "scheme": "mixed", "formality": "medium-high", "density": "medium", "mood": ["editorial", "warm", "styled"], "best_for": "Editorial pitches, lifestyle media, brand creative reviews.", "avoid_for": "Soft comforting or neutral corporate decks."},
+    {"slug": "block-frame", "name": "BlockFrame", "scheme": "light", "formality": "medium-low", "density": "high", "mood": ["bold", "playful", "graphic"], "best_for": "Indie SaaS launches, agency credentials, creative reviews, brand redesigns.", "avoid_for": "Regulated disclosures or formal legal briefs."},
+    {"slug": "raw-grid", "name": "Raw Grid", "scheme": "light", "formality": "medium-low", "density": "high", "mood": ["raw", "punchy", "confident"], "best_for": "Founder pitches, accelerator demos, comparison tables, process flows.", "avoid_for": "Soft, warm, or intentionally quiet decks."},
+    {"slug": "creative-mode", "name": "Creative Mode", "scheme": "light", "formality": "medium", "density": "medium-high", "mood": ["creative", "confident", "playful"], "best_for": "Creative agency pitches, design studios, art direction reviews.", "avoid_for": "Institutional restraint and quiet authority."},
+    {"slug": "bold-poster", "name": "Bold Poster", "scheme": "light", "formality": "medium", "density": "low", "mood": ["bold", "editorial", "loud"], "best_for": "Brand manifestos, founder vision, magazine-cover moments.", "avoid_for": "Slides that must carry paragraphs or dense tables."},
+    {"slug": "broadside", "name": "Broadside", "scheme": "dark", "formality": "medium-high", "density": "medium", "mood": ["editorial", "dramatic", "newspaper"], "best_for": "Manifestos, bilingual EN/CN decks, dramatic business or research stories.", "avoid_for": "Quiet warm or institutionally traditional decks."},
+    {"slug": "cartesian", "name": "Cartesian", "scheme": "light", "formality": "high", "density": "low", "mood": ["quiet", "elegant", "warm-minimal"], "best_for": "Investment theses, white papers, advisory work, long-form research.", "avoid_for": "Urgent or visually hot decks."},
+    {"slug": "stencil-tablet", "name": "Stencil & Tablet", "scheme": "light", "formality": "medium-high", "density": "medium", "mood": ["archival", "earthy", "tactile"], "best_for": "Museum, culture, architecture, heritage, craft, long-form research.", "avoid_for": "Digital-native polish or playful pop."},
+    {"slug": "biennale-yellow", "name": "Biennale Yellow", "scheme": "light", "formality": "high", "density": "medium", "mood": ["editorial", "warm", "cultural-institution"], "best_for": "Exhibition decks, design conferences, curatorial pitches, studio retrospectives.", "avoid_for": "Saturated high-punch business storytelling."},
+    {"slug": "studio", "name": "Studio", "scheme": "dark", "formality": "medium", "density": "medium", "mood": ["electric", "bold", "design-led"], "best_for": "Studio credentials, creative agency pitches, brand showcases.", "avoid_for": "Quiet or institutional decks."},
+    {"slug": "8-bit-orbit", "name": "8-Bit Orbit", "scheme": "dark", "formality": "low", "density": "medium", "mood": ["retro-tech", "playful", "cyberpunk"], "best_for": "Gaming, hackathons, retro tech talks, synthwave brands.", "avoid_for": "Finance disclosures, healthcare patient materials, traditional luxury."},
+    {"slug": "retro-windows", "name": "Retro Windows", "scheme": "light", "formality": "low", "density": "medium", "mood": ["nostalgic", "retro", "geeky"], "best_for": "Tech history, Y2K brands, playful retrospectives.", "avoid_for": "Modern elegant or institutionally credible decks."},
+    {"slug": "sakura-chroma", "name": "Sakura Chroma", "scheme": "light", "formality": "low", "density": "medium", "mood": ["retro", "playful", "kawaii-tech"], "best_for": "Indie hardware, music labels, analog studio retrospectives, product-catalogue stories.", "avoid_for": "Restrained corporate typography."},
+    {"slug": "pin-and-paper", "name": "Pin & Paper", "scheme": "light", "formality": "medium", "density": "medium", "mood": ["crafted", "handmade", "warm"], "best_for": "Qualitative research, founder reflections, workshops, brand stories.", "avoid_for": "Digital-native polished or rigorously data-driven decks."},
+    {"slug": "scatterbrain", "name": "Scatterbrain", "scheme": "light", "formality": "low", "density": "high", "mood": ["playful", "creative", "workshop"], "best_for": "Brainstorms, workshops, design thinking, ideation pitches.", "avoid_for": "Precision-heavy institutional decks."},
+    {"slug": "capsule", "name": "Capsule", "scheme": "light", "formality": "medium-low", "density": "medium", "mood": ["playful", "modern", "fresh"], "best_for": "Lifestyle, creator portfolios, DTC launches, playful tech demos.", "avoid_for": "Traditional institutional weight."},
+    {"slug": "long-table", "name": "Long Table", "scheme": "light", "formality": "medium", "density": "medium", "mood": ["warm", "social", "hospitality"], "best_for": "Community, hospitality, lifestyle, wine, membership decks.", "avoid_for": "Cold minimalist or technical density."},
+    {"slug": "grove", "name": "Grove", "scheme": "mixed", "formality": "medium-high", "density": "medium", "mood": ["organic", "warm", "literary"], "best_for": "Sustainability, wellness, outdoor, literary or arts decks.", "avoid_for": "Neon energy or rapid-fire pop."},
+    {"slug": "mat", "name": "Mat", "scheme": "mixed", "formality": "medium", "density": "medium", "mood": ["warm-modern", "tactile", "mid-century"], "best_for": "Architecture, interior, ceramics, craft, advisory decks with analog warmth.", "avoid_for": "Fast tech energy or institutional restraint."},
+    {"slug": "coral", "name": "Coral", "scheme": "mixed", "formality": "medium", "density": "medium", "mood": ["bold", "warm", "magazine"], "best_for": "Fashion, beauty, fitness, F&B, creator portfolios, warm tech narratives.", "avoid_for": "Quiet institutional decks."},
+    {"slug": "playful", "name": "Playful", "scheme": "light", "formality": "low", "density": "medium", "mood": ["warm", "approachable", "indie"], "best_for": "Creator portfolios, indie launches, newsletters, community decks.", "avoid_for": "Institutional credibility-first decks."},
+    {"slug": "retro-zine", "name": "Retro Zine", "scheme": "light", "formality": "medium-low", "density": "medium", "mood": ["crafted", "lo-fi", "warm-retro"], "best_for": "Indie zines, music, arts, community, warm research decks.", "avoid_for": "Digital-native polish or fast modern tech."},
+    {"slug": "pink-script", "name": "Pink Script - After Hours", "scheme": "dark", "formality": "medium-high", "density": "low", "mood": ["nocturnal", "luxe", "expressive"], "best_for": "Fashion, luxury, nightlife, expressive creator brands, magnetic keynotes.", "avoid_for": "Daytime B2B professional contexts."},
+    {"slug": "peoples-platform", "name": "People's Platform", "scheme": "light", "formality": "medium-low", "density": "medium-high", "mood": ["activist", "loud", "graphic"], "best_for": "Manifestos, civic/community decks, mission statements, campaign pitches.", "avoid_for": "Institutional restraint as the primary goal."},
+    {"slug": "daisy-days", "name": "Daisy Days", "scheme": "light", "formality": "low", "density": "medium", "mood": ["cheerful", "playful", "warm"], "best_for": "Education, kids and family, wellness, community workshops.", "avoid_for": "Authority and precision-first decks."}
+  ]
+}

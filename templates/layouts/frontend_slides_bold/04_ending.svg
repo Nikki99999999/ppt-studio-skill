@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#101521"/>
+  <rect x="56" y="54" width="1168" height="3" fill="#E9FF36"/>
+  <text x="56" y="286" fill="#F6F1E7" font-family="Impact, 'Arial Black', 'Microsoft YaHei', sans-serif" font-size="78" font-weight="900">{{THANK_YOU}}</text>
+  <text x="60" y="352" fill="#D8D0C2" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="24">{{CONTACT_INFO}}</text>
+  <rect x="60" y="420" width="420" height="54" fill="#245BFF"/>
+  <text x="82" y="454" fill="#FFFFFF" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20">{{AUTHOR}}</text>
+  <circle cx="1060" cy="344" r="92" fill="#FF6B4A"/>
+  <circle cx="1138" cy="392" r="56" fill="#E9FF36"/>
+  <text x="56" y="666" fill="#D8D0C2" font-family="Arial, sans-serif" font-size="14">{{DATE}}</text>
+</svg>

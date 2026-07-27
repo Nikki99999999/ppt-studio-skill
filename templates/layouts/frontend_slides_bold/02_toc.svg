@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#F6F1E7"/>
+  <rect x="56" y="48" width="1168" height="3" fill="#171717"/>
+  <text x="56" y="132" fill="#171717" font-family="Impact, 'Arial Black', 'Microsoft YaHei', sans-serif" font-size="52">CONTENTS</text>
+  <text x="56" y="174" fill="#245BFF" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="22">{{PAGE_TITLE}}</text>
+  <rect x="56" y="232" width="360" height="96" fill="#101521"/>
+  <text x="82" y="290" fill="#E9FF36" font-family="Impact, 'Arial Black', sans-serif" font-size="42">01</text>
+  <text x="156" y="288" fill="#F6F1E7" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="24">{{TOC_ITEM_1_TITLE}}</text>
+  <rect x="460" y="232" width="360" height="96" fill="#FFFFFF"/>
+  <rect x="460" y="232" width="360" height="96" fill="none" stroke="#171717" stroke-width="2"/>
+  <text x="486" y="290" fill="#245BFF" font-family="Impact, 'Arial Black', sans-serif" font-size="42">02</text>
+  <text x="560" y="288" fill="#171717" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="24">{{TOC_ITEM_2_TITLE}}</text>
+  <rect x="864" y="232" width="360" height="96" fill="#FF6B4A"/>
+  <text x="890" y="290" fill="#171717" font-family="Impact, 'Arial Black', sans-serif" font-size="42">03</text>
+  <text x="964" y="288" fill="#171717" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="24">{{TOC_ITEM_3_TITLE}}</text>
+  <line x1="56" y1="398" x2="1224" y2="398" stroke="#D8D0C2" stroke-width="2"/>
+  <text x="56" y="462" fill="#171717" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="24">{{TOC_ITEM_4_TITLE}}</text>
+  <text x="56" y="520" fill="#171717" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="24">{{TOC_ITEM_5_TITLE}}</text>
+  <text x="56" y="578" fill="#171717" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="24">{{TOC_ITEM_6_TITLE}}</text>
+  <text x="1120" y="666" fill="#171717" font-family="Arial, sans-serif" font-size="14">{{PAGE_NUM}}</text>
+</svg>

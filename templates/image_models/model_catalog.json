@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "updated": "2026-07-23",
+  "strategies": [
+    {
+      "id": "svg",
+      "label": "SVG design",
+      "tier": "deterministic",
+      "media": ["svg"],
+      "best_for": ["data", "process", "architecture", "consulting", "internal", "editable"],
+      "avoid_when": ["photorealistic", "cinematic"],
+      "route": "local-svg",
+      "requires_model_verification": false
+    },
+    {
+      "id": "host-native",
+      "label": "Host-native image tool",
+      "tier": "fast",
+      "media": ["image"],
+      "best_for": ["draft", "decorative", "low-risk", "speed"],
+      "avoid_when": ["strict-model", "brand-critical", "must-use-advanced-model"],
+      "route": "host-native",
+      "requires_model_verification": false,
+      "notes": "Use only when the user accepts an unspecified or host-selected model. Never relabel the result as a named advanced model."
+    },
+    {
+      "id": "image-2-web",
+      "label": "ChatGPT Images 2.0",
+      "tier": "advanced",
+      "media": ["image"],
+      "best_for": ["cinematic", "photorealistic", "instruction-following", "editing", "hero-image", "brand-story"],
+      "avoid_when": ["fully-editable-diagram"],
+      "route": "web",
+      "web_entry": "https://chatgpt.com/images",
+      "required_identity": "ChatGPT Images 2.0",
+      "requires_model_verification": true,
+      "watchdog_seconds": 300,
+      "poll_interval_seconds": 25
+    },
+    {
+      "id": "nano-banana-pro-web",
+      "label": "Nano Banana Pro",
+      "tier": "advanced",
+      "media": ["image"],
+      "best_for": ["infographic", "text-in-image", "multilingual", "knowledge-visual", "diagram", "mockup"],
+      "avoid_when": ["fully-editable-diagram"],
+      "route": "web",
+      "web_entry": "https://gemini.google.com/",
+      "required_identity": "Nano Banana Pro / Gemini 3 Pro Image",
+      "requires_model_verification": true,
+      "watchdog_seconds": 300,
+      "poll_interval_seconds": 25,
+      "notes": "Gemini may default to another Nano Banana model. Verify the exact Pro model in the UI before submission."
+    },
+    {
+      "id": "seedream-5-pro-web",
+      "label": "Seedream 5.0 Pro",
+      "tier": "advanced",
+      "media": ["image"],
+      "best_for": ["dense-infographic", "chinese-text", "commercial-visual", "storyboard", "precise-editing"],
+      "avoid_when": ["fully-editable-diagram"],
+      "route": "web",
+      "web_entry": "https://dreamina.capcut.com/seedream/seedream-5-0-pro",
+      "required_identity": "Seedream 5.0 Pro",
+      "requires_model_verification": true,
+      "watchdog_seconds": 300,
+      "poll_interval_seconds": 25
+    },
+    {
+      "id": "seedance-2-web",
+      "label": "Seedance 2.0",
+      "tier": "advanced",
+      "media": ["video", "keyframe"],
+      "best_for": ["motion", "cinematic-sequence", "event-opener", "product-launch", "dynamic-story"],
+      "avoid_when": ["static-only", "fully-editable-diagram"],
+      "route": "web",
+      "web_entry": "https://dreamina.capcut.com/tools/seedance-2-0",
+      "required_identity": "Seedance 2.0",
+      "requires_model_verification": true,
+      "watchdog_seconds": 300,
+      "poll_interval_seconds": 25,
+      "notes": "This is a video model. Standard PPTX output uses a selected keyframe or ships the MP4 as a companion asset unless the export pipeline explicitly supports embedded video."
+    }
+  ]
+}
