@@ -10,6 +10,7 @@ Every successfully reconstructed customer template becomes reusable after valida
 - Build a PPT-safe derived template package. Do not reuse browser runtime code or raw slide XML as the final template.
 - Register only the sanitized derived package in `templates/customer_library/`.
 - Keep customer templates private to the workspace by default.
+- Treat `templates/customer_library/` as the default destination for any user-uploaded template. Future projects must search this private library before recommending public templates.
 - Do not commit original customer files, confidential logos, personal data, or private derived templates to Git.
 - Promotion into the public `templates/layouts/` library requires explicit publication approval and a privacy review.
 
@@ -79,7 +80,7 @@ Template recommendation reads both:
 - Public library: `templates/layouts/layouts_index.json`
 - Private customer library: `templates/customer_library/index.json`
 
-When a private customer template matches the user, show it as `Workspace private template`. Copy its derived SVG and sanitized assets into the new project. Never copy the original customer upload into another project.
+When a private customer template matches the user, show it as `Workspace private template` and place it ahead of generic public templates when fit is comparable. Copy its derived SVG and sanitized assets into the new project. Never copy the original customer upload into another project.
 
 ## 5. Public promotion
 

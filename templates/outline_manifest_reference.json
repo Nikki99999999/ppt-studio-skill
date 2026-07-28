@@ -3,6 +3,7 @@
   "output_language": "zh-CN",
   "framework": "minto",
   "scenario": "decision",
+  "source_material_type": "speech | briefing | report | article | topic | mixed | other",
   "framework_rationale": "Why this primary framework matches the audience, occasion, and narrative goal.",
   "secondary_checks": [],
   "narrative_goal": "State the decision, belief, or action the audience should leave with.",
@@ -19,6 +20,7 @@
     {
       "page": 1,
       "role": "cover",
+      "section_title": "",
       "action_title": "A conclusion-led title in the confirmed output language",
       "single_point": "The one point this page must land.",
       "visual_assumption": "Only the high-level visual direction needed for outline approval."

@@ -17,6 +17,10 @@ description: >
 
 **Silent-reading rule**: A finished deck must be understandable without listening to the speaker notes. Use notes as a source for sharper page copy, but visible slide text must communicate the page's user-facing value. For Chinese decks, final copy must be reviewed with `references/humanized-copy-review.md` and revised into natural, specific Chinese.
 
+**Speech/report conversion rule**: When converting a speech draft, meeting briefing, work report, or other long structured prose, follow `references/content-quality-framework.md` §7.2: include a TOC / agenda page, keep persistent section labels on content pages, preserve important paragraph facts in visible body copy, and add one meaningful chart/diagram/structured visual per substantive page.
+
+**Foundation and attribution rule**: Presentation Studio inherits PPT Master's SVG authoring and SVG-to-DrawingML export foundation. When explaining this system or comparing it with PPT Master, read `references/ppt-master-foundation.md` and state the verified advantages without overclaiming token savings. When using Frontend Slides-inspired aesthetics, read `references/frontend-slides-design-pack.md`, credit Zara Zhang's `zarazhangrui/frontend-slides` for design inspiration, and distinguish Presentation Studio's added private template persistence mechanism.
+
 > [!CAUTION]
 > ## 🚨 Global Execution Discipline (MANDATORY)
 >
@@ -238,10 +242,12 @@ Read references/strategist.md
 3. Classify the scenario from audience, occasion, narrative goal, and requested action. Choose exactly one primary framework: Minto for decision/strategy/board/business review; Duarte + Presentation Zen for speech/launch/public communication; Kawasaki 10/20/30 for fundraising/sales/business-development pitch. For mixed scenarios, record one primary framework and only compatible secondary checks.
 4. Draft the structure only. Write `<project_path>/ghost_deck.md` with ordered Action Titles and one sentence per page in the confirmed output language.
 5. Write `<project_path>/outline_manifest.json` from `templates/outline_manifest_reference.json`. Include scenario, framework, narrative goal, requested decision/action, output language, Action Titles, one point per page, and only high-level visual assumptions needed for outline approval. Do not include detailed body copy, claims, evidence, source footers, or image prompts.
+   - For speech/report conversion decks, include the TOC/agenda page and `section_title` for each content page in the outline so the user can verify the source logic before production.
 6. Present the user-facing outline directly: page count, framework, titles-test sequence, one sentence per page, and any high-impact visual/model assumptions. Do not run an outline checker or independent outline audit by default.
 7. ⛔ **BLOCKING**: Wait for explicit user approval or requested changes to the outline before generating detailed slide content.
 8. When approved, write `<project_path>/outline_approval.md` with approval status, timestamp, approved page list, selected framework, selected image strategy, user change requests if any, and the exact user approval message or a short paraphrase. Update `outline_manifest.json` approval status.
 9. Generate detailed audience-facing content according to the selected framework. Write `<project_path>/content_manifest.json` from `templates/content_manifest_reference.json`, including final Action Titles, body copy, claims, evidence, source mapping, visible source footers, silent-reading notes, and humanized-copy review status. The page order, titles, and single points MUST match the approved outline. If content work requires a material outline change, return to the outline approval gate.
+   - For speech/report conversion decks, each content page must preserve the source paragraph's important information in visible body copy and specify a meaningful visualization type.
 10. Continue directly to `design_spec.md`, image generation when selected, sequential SVG construction, and speaker notes.
 11. Run the content checker, SVG checker, conditional template-aesthetic checker, and unified independent audit only after the full deck is ready and before export.
 
@@ -287,7 +293,7 @@ Read `references/visual-generation-strategy.md`
 2. Generate prompt document → `<project_path>/images/image_prompts.md`
 3. Route each asset according to the confirmed strategy in `spec_lock.md`:
    - `svg`: no raster generation; Executor constructs the visual locally
-   - `host-native`: use the current host image tool and record the model as `host-selected/unspecified`
+   - `host-native`: use the current host image tool and record the model as `host-selected/unspecified`; do not infer Image 2.0 or any named advanced model from the host environment
    - named advanced model: open only the corresponding `web_entry` from `templates/image_models/model_catalog.json`, verify the exact model in the UI, then submit once
    - `hybrid`: use SVG for information-bearing pages and the one user-selected model for listed hero assets
 4. Never silently replace the selected model. A host-native tool with an undisclosed identity cannot satisfy a named-model choice. If exact web model identity cannot be verified, mark the asset `Needs-Manual`.
@@ -355,6 +361,7 @@ python3 ${SKILL_DIR}/scripts/template_aesthetic_checker.py <project_path>
 
 4. After all automated checks pass, dispatch one sub-agent for a unified read-only audit. Provide the raw project path and require review of `ghost_deck.md`, `outline_approval.md`, `content_manifest.json`, `design_spec.md`, `spec_lock.md`, image records, `notes/total.md`, generated SVGs, automated checker outputs, and `references/humanized-copy-review.md` for Chinese copy.
 - The sub-agent MUST audit content and visuals together: framework fit, argument chain, approved-outline alignment, Action Titles, one-page-one-point discipline, unsupported claims, source footers, silent-reading comprehension, speaker-note-to-slide value transfer, language quality, Chinese humanization / AI-flavor removal, unintended occlusion, table misalignment, text overflow, missing hierarchy, template aesthetics, and spec/rhythm drift.
+- For speech/report conversion decks, the sub-agent MUST also check that the TOC exists, section labels are visible and consistent, each substantive page has an information-bearing chart/diagram/structured visual, and important source-paragraph facts are not over-compressed into one vague sentence.
 - The sub-agent MUST return findings only; it MUST NOT edit files, generate replacement SVG, or continue the PPT pipeline
 - If the sub-agent reports actionable issues, the main agent fixes them, re-runs every affected automated checker, and repeats the unified audit when content or layout changed materially.
 - If a sub-agent is unavailable in the current host, stop before export and report the audit as blocked. A manual self-review does not satisfy this gate.

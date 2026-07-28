@@ -88,6 +88,32 @@ A finished deck must work without a presenter. Speaker notes are a drafting sour
 
 Chinese copy must also pass a humanized-language review. Read `references/humanized-copy-review.md` for the concrete checklist adapted from Humanizer-zh: remove filler, break formulaic structures, vary rhythm, trust the reader, and preserve technical precision while removing AI-flavored phrasing.
 
+For Chinese decks, treat the Humanizer-zh-inspired review as a blocking release check, not a cosmetic polish pass. Avoid stock contrasts such as `不是……而是……` when a direct positive statement is clearer. The final independent audit must report whether visible slide text can stand without speaker notes and whether AI-flavored patterns were removed.
+
+## 7.1 System-explanation decks
+
+When a deck explains Presentation Studio itself or compares it with PPT Master, read `references/ppt-master-foundation.md` and state the inherited foundation accurately:
+
+- Presentation Studio builds on PPT Master's SVG authoring layer and SVG-to-DrawingML compilation path.
+- The real advantages are native PowerPoint editability, inspectable SVG source, reusable source files, local/open workflow, quality checks, and lower rework from a simpler authoring target.
+- Do not claim universal token savings unless a concrete benchmark is available. Use the bounded claim: SVG reduces authoring complexity and preserves a reusable source layer.
+
+When mentioning Frontend Slides, read `references/frontend-slides-design-pack.md` and keep the attribution boundary clear: Zara Zhang's `zarazhangrui/frontend-slides` inspired the design-template aesthetics and selection pattern; Presentation Studio adds private customer-template persistence, validation, indexing, retrieval, and reuse.
+
+## 7.2 Speech, briefing, and report-source decks
+
+When converting a speech draft, meeting briefing, official report, work summary, or other long structured prose into a deck, preserve the source's section logic visibly:
+
+- If the source has multiple major sections and the user does not explicitly request a cover-first deck, make page 1 a TOC / agenda page that shows the full argument structure. If the user requests a cover, place the TOC immediately after the cover unless they say otherwise.
+- Assign every non-TOC content page a `section_title` that maps to one major source section. The visual page must show this section title in the upper-left header area or the equivalent template header position so readers always know where they are in the source logic.
+- For each source paragraph or small paragraph group, preserve the important information: actors, actions, mechanisms, numbers, milestones, examples, and next steps. Rephrase for slide clarity, but do not collapse a substantive paragraph into one vague sentence.
+- Merge thin paragraphs only when they support the same `single_point`; record the merge in the page's source mapping.
+- Every substantive content page should contain at least one information-bearing visual element: chart, KPI strip, timeline, process diagram, relationship map, table, matrix, comparison, or structured infographic. Icons or decorative shapes alone do not satisfy this rule.
+- Use visuals to clarify the paragraph's logic, not to decorate it. If the paragraph has no numeric data, use a process, responsibility map, timeline, or evidence chain instead of inventing numbers.
+- Keep the one-page-one-point discipline: the page can contain several evidence bullets, but they must all prove the Action Title and `single_point`.
+
+Acceptance: a reader should be able to reconstruct both the original document's major structure and each paragraph's key contribution from the slide pages alone, without needing the Word document or speaker notes.
+
 ## 8. Consistency creates trust
 
 - Use at most two font families.
@@ -133,7 +159,8 @@ Chinese copy must also pass a humanized-language review. Read `references/humani
 - Every non-structural page has an Action Title and one point.
 - The final deck passes the silent-reading test: visible slide copy alone communicates the main advantages, claims, and requested action.
 - Speaker notes and visible slide copy are aligned; any critical explanation in notes is either visible on the slide or deliberately retained as delivery-only nuance.
-- Chinese copy has been reviewed for AI-flavored phrasing and revised into natural, specific language.
+- Chinese copy has been reviewed with the Humanizer-zh-inspired checklist, obvious AI-flavored phrasing has been removed, and the review score is 45+ unless an explicit exception is recorded.
+- Speech, briefing, and report-source decks include a TOC / agenda page, persistent section labels on content pages, meaningful visualizations on substantive pages, and enough visible body copy to preserve each source paragraph's key information.
 - Claims are supported by evidence or explicitly labeled as assumptions.
 - Factual claims and data map to visible sources.
 - The selected scenario framework's hard constraints pass.

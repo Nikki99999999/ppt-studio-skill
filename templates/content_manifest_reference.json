@@ -3,6 +3,7 @@
   "output_language": "zh-CN",
   "framework": "minto",
   "scenario": "decision",
+  "source_material_type": "speech | briefing | report | article | topic | mixed | other",
   "framework_rationale": "Why this primary framework matches the audience, occasion, and narrative goal.",
   "secondary_checks": [],
   "narrative_goal": "State the decision, belief, or action the audience should leave with.",
@@ -17,7 +18,8 @@
     "status": "pending",
     "reference": "references/humanized-copy-review.md",
     "score_50": 0,
-    "fixed_patterns": []
+    "fixed_patterns": [],
+    "exception_reason": ""
   },
   "allocation": {
     "structure_percent": 40,
@@ -40,10 +42,24 @@
     {
       "page": 1,
       "role": "cover",
+      "section_title": "",
       "action_title": "A conclusion-led title",
       "single_point": "The one point this page must land.",
       "body_points": [
         "Audience-facing slide copy that proves the Action Title."
+      ],
+      "visualization": {
+        "type": "none | chart | kpi | timeline | process | relationship-map | table | matrix | structured-infographic",
+        "purpose": "Explain what source logic this visual clarifies."
+      },
+      "source_mapping": [
+        {
+          "source_section": "Original source section or heading",
+          "source_paragraphs": "Paragraph numbers or concise paragraph identifiers covered by this slide",
+          "preserved_key_information": [
+            "Actor / action / number / milestone / example / next step preserved visibly on the slide"
+          ]
+        }
       ],
       "evidence": [
         {

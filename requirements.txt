@@ -1,4 +1,4 @@
-﻿# Presentation Studio Dependencies / Presentation Studio 依赖
+# Presentation Studio Dependencies / Presentation Studio 依赖
 # =============================================
 #
 # Most tools use only the Python standard library. Below are optional dependencies.
@@ -6,6 +6,13 @@
 #
 # Install / 安装方式：
 #   pip install -r requirements.txt
+
+# ─────────────────────────────────────────────────────────────
+# Structured config / 结构化配置
+# ─────────────────────────────────────────────────────────────
+# Used by manifests, model catalogs, and future YAML-based template metadata.
+# 用于 manifest、模型目录和后续 YAML 模板元数据解析。
+PyYAML>=6.0.1
 
 # ─────────────────────────────────────────────────────────────
 # SVG to PPTX tool / SVG 转 PPTX 工具 (skills/presentation-studio/scripts/svg_to_pptx.py)

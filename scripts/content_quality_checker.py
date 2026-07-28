@@ -16,6 +16,19 @@ SCENARIO_FRAMEWORK = {
     "pitch": "kawasaki",
 }
 STRUCTURAL_ROLES = {"cover", "chapter", "toc", "ending", "appendix"}
+STRUCTURED_SOURCE_TYPES = {"speech", "briefing", "report", "work-report", "official-report", "meeting-briefing"}
+INFORMATION_VISUAL_TYPES = {
+    "chart",
+    "kpi",
+    "timeline",
+    "process",
+    "relationship-map",
+    "table",
+    "matrix",
+    "structured-infographic",
+    "diagram",
+    "map",
+}
 GENERIC_TITLES = {
     "\u5e02\u573a\u6982\u51b5",
     "\u9879\u76ee\u80cc\u666f",
@@ -134,6 +147,13 @@ def validate(
             "content_manifest.output_language must match the approved outline_manifest.json"
         )
 
+    source_material_type = str(
+        manifest.get("source_material_type")
+        or outline_manifest.get("source_material_type")
+        or ""
+    ).strip().lower()
+    is_structured_source = source_material_type in STRUCTURED_SOURCE_TYPES
+
     if stage == "content":
         allocation = manifest.get("allocation", {})
         allocation_values = [
@@ -146,10 +166,19 @@ def validate(
         if output_language.lower().startswith("zh"):
             silent_review = manifest.get("silent_reading_review", {})
             if not isinstance(silent_review, dict) or str(silent_review.get("status", "")).strip().lower() not in {"passed", "pass", "done"}:
-                warnings.append("silent_reading_review should be completed for Chinese decks")
+                errors.append("silent_reading_review must be completed for Chinese decks")
             humanized_review = manifest.get("humanized_copy_review", {})
             if not isinstance(humanized_review, dict) or str(humanized_review.get("status", "")).strip().lower() not in {"passed", "pass", "done"}:
-                warnings.append("humanized_copy_review should be completed with references/humanized-copy-review.md")
+                errors.append("humanized_copy_review must be completed with references/humanized-copy-review.md")
+            else:
+                score = humanized_review.get("score_50")
+                try:
+                    score_value = float(score)
+                except (TypeError, ValueError):
+                    errors.append("humanized_copy_review.score_50 must be numeric for Chinese decks")
+                else:
+                    if score_value < 45 and not str(humanized_review.get("exception_reason", "")).strip():
+                        errors.append("humanized_copy_review.score_50 must be >=45 or include exception_reason")
 
     slides = manifest.get("slides")
     if not isinstance(slides, list) or not slides:
@@ -160,6 +189,13 @@ def validate(
     actual_pages = [slide.get("page") for slide in slides]
     if actual_pages != expected_pages:
         errors.append("slide page numbers must be sequential starting at 1")
+
+    if stage == "content" and is_structured_source:
+        first_roles = [str(slide.get("role", "")).strip().lower() for slide in slides[:2]]
+        if "toc" not in first_roles:
+            errors.append(
+                "speech/briefing/report decks require a TOC or agenda slide in the first two pages"
+            )
 
     seen_titles: set[str] = set()
     sourced_claims = 0
@@ -186,6 +222,12 @@ def validate(
             warnings.append(f"P{page}: title may contain more than one point: '{title}'")
         if not point:
             errors.append(f"P{page}: single_point is required")
+        if stage == "content" and is_structured_source and role not in STRUCTURAL_ROLES:
+            section_title = str(slide.get("section_title", "")).strip()
+            if not section_title:
+                errors.append(
+                    f"P{page}: speech/briefing/report content pages require section_title"
+                )
         if output_language.lower().startswith("zh"):
             if not CJK_RE.search(title):
                 errors.append(f"P{page}: action_title must contain Chinese for output_language={output_language}")
@@ -205,13 +247,34 @@ def validate(
                 and any(str(item).strip() and not CJK_RE.search(str(item)) for item in body_points)
             ):
                 errors.append(f"P{page}: body_points must be Chinese for output_language={output_language}")
+            if is_structured_source and role not in STRUCTURAL_ROLES:
+                visible_body = "".join(str(item).strip() for item in body_points if str(item).strip())
+                if len([item for item in body_points if str(item).strip()]) < 2 and len(visible_body) < 45:
+                    errors.append(
+                        f"P{page}: speech/briefing/report pages must preserve more than one thin sentence of visible body copy"
+                    )
+                visualization = slide.get("visualization", {})
+                visual_type = ""
+                visual_purpose = ""
+                if isinstance(visualization, dict):
+                    visual_type = str(visualization.get("type", "")).strip().lower()
+                    visual_purpose = str(visualization.get("purpose", "")).strip()
+                if visual_type not in INFORMATION_VISUAL_TYPES or not visual_purpose:
+                    errors.append(
+                        f"P{page}: speech/briefing/report pages require an information-bearing visualization"
+                    )
+                source_mapping = slide.get("source_mapping", [])
+                if not isinstance(source_mapping, list) or not source_mapping:
+                    errors.append(
+                        f"P{page}: speech/briefing/report pages require source_mapping"
+                    )
             if output_language.lower().startswith("zh"):
                 copy_fragments = [title, point]
                 if isinstance(body_points, list):
                     copy_fragments.extend(str(item) for item in body_points)
                 ai_hits = sorted({hit.group(0) for text in copy_fragments for hit in AI_FLAVOR_RE.finditer(str(text))})
                 if ai_hits:
-                    warnings.append(
+                    errors.append(
                         f"P{page}: possible AI-flavored Chinese phrasing; review with humanized-copy-review.md: "
                         + "、".join(ai_hits[:8])
                     )

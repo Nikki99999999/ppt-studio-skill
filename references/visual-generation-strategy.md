@@ -17,6 +17,8 @@ python3 scripts/image_strategy_recommender.py \
 
 Present one recommended strategy, its reason, and the available alternatives. The user must confirm the visual production strategy before the Design Specification is written.
 
+The strategy question is required for every deck unless the user has already selected a route. Recommend from the audience and narrative goal, then let the user confirm: pure SVG, host-native image tool, one named advanced web model, or hybrid. A host-native tool with an undisclosed model identity is a separate choice; it never satisfies a named advanced-model requirement.
+
 ## 2. User-facing choices
 
 | Choice | Use when | Execution |
@@ -39,6 +41,7 @@ Read `templates/image_models/model_catalog.json` as the machine-readable source.
 4. Never describe a host-native result as Image 2.0, Nano Banana Pro, Seedream, or Seedance unless the tool result explicitly attests that identity.
 5. A hybrid plan may mix SVG with one named advanced model. Mixing multiple paid or advanced models requires explicit user approval.
 6. Seedance is a video model. For standard PPTX delivery, save the video as a companion asset and use a selected keyframe in the slide. Do not claim the PPTX embeds video unless the export pipeline verifies that it does.
+7. If the current host offers image generation, record it as `host-native` unless the host exposes an exact model attestation. Do not infer Image 2.0 from the host name, UI surface, or visual quality.
 
 ## 4. Web automation contract
 

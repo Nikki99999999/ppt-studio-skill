@@ -14,6 +14,8 @@ Apply these checks to visible slide copy and speaker notes:
 4. Trust the reader. State facts and conclusions directly without excessive hand-holding, hedging, or apologetic framing.
 5. Remove quotable-sounding slogans when they replace substance. Keep a strong claim only when it is backed by specific evidence or a concrete mechanism.
 
+This review is a release gate for Chinese decks. If a phrase is flagged as AI-flavored, rewrite it before export unless the project records a concrete reason for keeping it. A self-review may draft fixes, but the required final independent audit must check the visible slide copy and speaker notes again.
+
 ## Common AI-flavored patterns to flag
 
 Flag and rewrite these patterns when they appear in Chinese presentation copy:
@@ -22,7 +24,7 @@ Flag and rewrite these patterns when they appear in Chinese presentation copy:
 - Marketing blur: "无缝", "直观", "强大", "充满活力", "开创性", "令人叹为观止", "必游/必看", "深刻".
 - Vague authority: "行业专家认为", "多个来源显示", "观察者指出" without a named source.
 - AI connective habits: "此外", "值得注意的是", "在这个背景下", "从……到……" when they add no information.
-- Negative parallelism: "不仅……而且……", "不只是/不仅仅是……而是……" when used as a stock contrast.
+- Negative parallelism: "不仅……而且……", "不只是/不仅仅是……而是……", "不是……而是……" when used as a stock contrast. Prefer a direct positive statement of what the system does and why it matters.
 - Three-item completeness theater: forced "A、B、C" lists that sound comprehensive but do not improve the argument.
 - Overuse of dashes, bold emphasis, emoji markers, and inline heading lists.
 - Generic positive conclusions: "未来可期", "迈向新阶段", "持续追求卓越" without a specific next action or measurable outcome.
@@ -54,3 +56,5 @@ Acceptance guidance:
 - 45-50: ready.
 - 35-44: acceptable only after fixing obvious flagged phrases.
 - Below 35: revise visible copy before export.
+
+For release, target 45+ for Chinese decks. Scores below 45 require revision or an explicit exception recorded in `content_manifest.json`.
