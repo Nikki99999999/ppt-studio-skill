@@ -1,4 +1,4 @@
-﻿# Frontend Slides Design Pack
+# Frontend Slides Design Pack
 
 Use this reference when the user wants more stylish templates, mentions Frontend Slides, provides an HTML slide reference, or wants to choose a template before PPT generation.
 

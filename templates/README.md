@@ -1,4 +1,4 @@
-﻿# Template Resources
+# Template Resources
 
 ## Design Specification & Outline Reference
 

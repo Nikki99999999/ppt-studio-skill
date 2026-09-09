@@ -1,4 +1,4 @@
-﻿# Project Tools
+# Project Tools
 
 Project tools create, validate, and inspect the standard Presentation Studio workspace.
 

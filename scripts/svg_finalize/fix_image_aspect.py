@@ -315,7 +315,7 @@ def fix_image_aspect_in_svg(svg_path: str, dry_run: bool = False, verbose: bool 
     
     if not dry_run and fixed_count > 0:
         # Save modifications
-        tree.write(svg_path, encoding='unicode', xml_declaration=True)
+        tree.write(svg_path, encoding='utf-8', xml_declaration=True)
     
     return fixed_count
 

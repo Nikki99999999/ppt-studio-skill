@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Presentation Studio - Speaker Notes Splitting Tool
 

@@ -1,4 +1,4 @@
-﻿# SVG Visualization Template Library
+# SVG Visualization Template Library
 
 This directory contains the standardized SVG visualization templates used by Presentation Studio — charts, infographics, process diagrams, relationship diagrams, and strategic frameworks. The directory name `charts/` is kept for backward compatibility; the library scope is broader than charts.
 

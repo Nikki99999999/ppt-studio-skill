@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Lightweight aesthetic gate for Presentation Studio design specs and SVG pages."""
 
 from __future__ import annotations

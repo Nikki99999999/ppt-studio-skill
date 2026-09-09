@@ -1,4 +1,4 @@
-﻿# Presentation Studio Toolset
+# Presentation Studio Toolset
 
 This directory contains user-facing scripts for conversion, project setup, SVG processing, export, and image generation.
 
@@ -17,11 +17,13 @@ This directory contains user-facing scripts for conversion, project setup, SVG p
 Typical end-to-end workflow:
 
 ```bash
+python3 scripts/environment_preflight.py --phase core
 python3 scripts/source_to_md/pdf_to_md.py <file.pdf>
 # or
 python3 scripts/source_to_md/ppt_to_md.py <deck.pptx>
 python3 scripts/project_manager.py init <project_name> --format ppt169
 python3 scripts/project_manager.py import-sources <project_path> <source_files...> --move
+python3 scripts/artifact_encoding_checker.py <project_path>
 python3 scripts/total_md_split.py <project_path>
 python3 scripts/finalize_svg.py <project_path>
 python3 scripts/svg_to_pptx.py <project_path> -s final
@@ -44,6 +46,8 @@ python3 scripts/update_repo.py
 | Image tools | `image_gen.py`, `analyze_images.py`, `gemini_watermark_remover.py` | [docs/image.md](./docs/image.md) |
 | Repo maintenance | `update_repo.py` | README install/update section |
 | Troubleshooting | validation, preview, export, dependency issues | [docs/troubleshooting.md](./docs/troubleshooting.md) |
+
+Commands use `python3` as a readable example only. Resolve the current host's actual Python executable first; do not assume a fixed command name, working directory, or sandbox path.
 
 ## High-Frequency Commands
 

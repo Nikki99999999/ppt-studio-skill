@@ -1,4 +1,4 @@
-﻿# Role: Strategist
+# Role: Strategist
 
 ## Core Mission
 

@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Presentation Studio - SVG to PPTX Tool (thin wrapper).
 
 Delegates to the svg_to_pptx package. Kept for CLI backward compatibility:

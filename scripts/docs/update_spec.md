@@ -1,4 +1,4 @@
-﻿# update_spec.py
+# update_spec.py
 
 Propagate a `spec_lock.md` value change to both the lock file and every `svg_output/*.svg`. The single edit surface for bulk style tweaks after generation.
 

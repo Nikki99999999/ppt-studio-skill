@@ -1,4 +1,4 @@
-﻿"""CLI entry point for svg_to_pptx."""
+"""CLI entry point for svg_to_pptx."""
 
 from __future__ import annotations
 

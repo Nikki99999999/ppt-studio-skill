@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Update the repository and sync Python dependencies when needed.
 
 Usage:

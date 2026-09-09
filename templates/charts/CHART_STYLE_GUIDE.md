@@ -1,4 +1,4 @@
-﻿# Chart SVG Style Guide
+# Chart SVG Style Guide
 
 > 本文档定义了 `templates/charts/` 下所有 SVG 图表模板的视觉规范。  
 > 新增或修改图表时 **必须** 遵循以下标准，确保全库视觉一致性。

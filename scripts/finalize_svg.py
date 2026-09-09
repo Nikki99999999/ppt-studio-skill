@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Presentation Studio - SVG Post-processing Tool (Unified Entry Point)
 
@@ -31,6 +31,7 @@ import sys
 import shutil
 import argparse
 from pathlib import Path
+from artifact_encoding_checker import check_path, write_report
 
 # Import finalize helpers from the internal package.
 sys.path.insert(0, str(Path(__file__).parent))
@@ -69,7 +70,7 @@ def process_flatten_text(svg_file: Path, verbose: bool = False) -> bool:
         changed = flatten_text_with_tspans(tree)
 
         if changed:
-            tree.write(str(svg_file), encoding='unicode', xml_declaration=False)
+            tree.write(str(svg_file), encoding='utf-8', xml_declaration=False)
             if verbose:
                 safe_print(f"   [OK] {svg_file.name}: text flattened")
         return changed
@@ -239,6 +240,15 @@ def finalize_project(
                 safe_print(f"      {rounded_count} rounded rectangle(s) converted")
             else:
                 safe_print("      No rounded rectangles")
+
+    # Validate rewritten artifacts before reporting success or suggesting export.
+    files, findings = check_path(svg_final)
+    write_report(project_dir / 'qa' / 'finalized_encoding_report.json', svg_final, files, findings)
+    if findings or not files:
+        for finding in findings:
+            safe_print(f"[ERROR] {finding.path}: {finding.code}: {finding.message}")
+        safe_print('[ERROR] Finalized SVG encoding check failed; export is blocked.')
+        return False
 
     # Done
     if not quiet:

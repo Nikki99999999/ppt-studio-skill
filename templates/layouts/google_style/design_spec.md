@@ -1,4 +1,4 @@
-﻿# Google Style Template - Design Specification
+# Google Style Template - Design Specification
 
 > Suitable for tech company annual reports, work summaries, technical sharing, data presentations, and similar scenarios.
 

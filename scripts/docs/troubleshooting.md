@@ -48,7 +48,16 @@ Do not export directly from `svg_output/` when `svg_final/` exists.
 
 ## Dependency Checklist
 
-Most tools use the standard library. Install extra dependencies only when needed:
+Do not work around a dependency failure by switching to a hard-coded directory such as `D:\luo\ai\pptagent`. From the loaded skill directory, run the preflight with the same interpreter that will execute the pipeline:
+
+```bash
+<python> scripts/environment_preflight.py --phase core
+<python> scripts/environment_preflight.py --phase production --project-path <project_path>
+```
+
+Use the narrower phase (`pdf`, `docx`, `html`, `epub`, `ipynb`, `pptx-source`, `web`, `image-gemini`, or `image-openai`) when appropriate. The command reports the resolved interpreter and paths. Install extra dependencies only when the selected phase requires them:
+
+The production preflight treats a missing PNG compatibility renderer as a warning because native editable PPTX export remains available. Add `--require-compat-renderer` when the legacy SVG-plus-PNG fallback variant is a required deliverable.
 
 ```bash
 pip install -r requirements.txt
@@ -60,3 +69,13 @@ Important optional packages:
 - `numpy` for watermark removal
 - `PyMuPDF` for PDF conversion
 - `google-genai` / `openai` for image generation backends
+
+## Chinese Text Is Corrupted or QA Reports an Encoding Failure
+
+Run the project-wide checker:
+
+```bash
+<python> scripts/artifact_encoding_checker.py <project_path> --report <project_path>/qa/artifact_encoding_report.json
+```
+
+Regenerate the named artifact from the last intact UTF-8 source. Do not repair mojibake by guessing or by decoding with `errors="replace"`; once text has become `?` or `U+FFFD`, recover it from the source material. Re-run the checker before the content and SVG quality checks, then run `finalize_svg.py`, which automatically checks rewritten `svg_final/` and blocks export on encoding failure.

@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Presentation Studio - Smart Image Cropping Tool
 
@@ -25,9 +25,11 @@ from urllib.parse import unquote
 
 try:
     from PIL import Image
+    PILLOW_AVAILABLE = True
 except ImportError:
-    print("Error: PIL (Pillow) is required. Run: pip install Pillow")
-    exit(1)
+    # Cropping is optional; keep this module importable for SVG-only projects.
+    Image = None
+    PILLOW_AVAILABLE = False
 
 
 def parse_preserve_aspect_ratio(attr: str) -> tuple[str, str]:
@@ -145,6 +147,11 @@ def process_svg_images(
     Returns:
         (processed_count, error_count)
     """
+    if not PILLOW_AVAILABLE:
+        if verbose:
+            print("[WARN] Pillow not installed; skipping image cropping.")
+        return (0, 0)
+
     svg_path = Path(svg_file)
     svg_dir = svg_path.parent
     
@@ -288,7 +295,7 @@ def process_svg_images(
     
     # Save modified SVG
     if modified and not dry_run:
-        tree.write(str(svg_path), encoding='unicode', xml_declaration=False)
+        tree.write(str(svg_path), encoding='utf-8', xml_declaration=False)
     
     return (processed_count, error_count)
 

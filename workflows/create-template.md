@@ -1,4 +1,4 @@
-﻿---
+---
 description: Generate a new PPT layout template based on existing project files or reference templates
 ---
 

@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Internal helper: extract lightweight template assets and style metadata from a PPTX file.
 
 This helper is intentionally limited in scope:

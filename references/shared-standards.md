@@ -1,6 +1,27 @@
-﻿# Shared Technical Standards
+# Shared Technical Standards
 
 Common technical constraints for Presentation Studio, eliminating cross-role file duplication.
+
+---
+
+## 0. UTF-8 Artifact Contract
+
+Every generated text artifact must be UTF-8 without BOM. This includes SVG, Markdown, JSON, speaker notes, image prompts, XML, CSV, YAML, HTML, and QA reports.
+
+- Do not send literal CJK through shell command arguments, here-strings, or output redirection unless the host has explicitly guaranteed UTF-8 end to end.
+- Prefer the host's direct file-editing mechanism. When generation is programmatic, keep source content in a UTF-8 file and use Python `Path.read_text(encoding="utf-8")` / `Path.write_text(..., encoding="utf-8", newline="\n")`.
+- Serialize human-readable JSON with `ensure_ascii=False`, then write it with explicit UTF-8.
+- Never use `errors="replace"` when ingesting presentation text. A decode failure must stop the phase with the path and failing byte position; silent replacement destroys recoverability.
+- XML serializers must emit bytes with `encoding="utf-8"`; do not rely on the host's locale or implicit text encoding.
+- In Step 6, after artifact generation and before content/visual QA, run:
+
+```bash
+${PYTHON} ${SKILL_DIR}/scripts/artifact_encoding_checker.py <project_path> --report <project_path>/qa/artifact_encoding_report.json
+```
+
+`finalize_svg.py` automatically checks rewritten `svg_final/` and writes `qa/finalized_encoding_report.json`. No additional manual encoding scan is required after it succeeds.
+
+Invalid UTF-8, BOM, `U+FFFD`, embedded BOM, NUL, private-use characters, C1 controls, recognizable mojibake, or repeated ASCII question marks in a `zh-CN` project are blocking errors. The checker supplements XML well-formedness; it does not replace the SVG quality checker.
 
 ---
 
@@ -273,19 +294,21 @@ Logically related elements **MUST** be wrapped in `<g>` tags. This produces Powe
 
 ---
 
-## 5. Post-processing Pipeline (3 Steps)
+## 5. Post-processing Pipeline (3 Command Steps)
 
-Must be executed in order — skipping or adding extra flags is FORBIDDEN:
+Must be executed in order. Do not add flags to the split, finalize, or export commands unless this workflow explicitly requires them:
 
 ```bash
 # 1. Split speaker notes into per-page note files
-python3 scripts/total_md_split.py <project_path>
+${PYTHON} ${SKILL_DIR}/scripts/total_md_split.py <project_path>
 
 # 2. SVG post-processing (icon embedding, image crop/embed, text flattening, rounded rect to path)
-python3 scripts/finalize_svg.py <project_path>
+${PYTHON} ${SKILL_DIR}/scripts/finalize_svg.py <project_path>
+
+# Finalization automatically validates rewritten svg_final/; failure blocks export.
 
 # 3. Export PPTX (from svg_final/, embeds speaker notes by default)
-python3 scripts/svg_to_pptx.py <project_path> -s final
+${PYTHON} ${SKILL_DIR}/scripts/svg_to_pptx.py <project_path> -s final
 # Output: exports/<project_name>_<timestamp>.pptx + exports/<project_name>_<timestamp>_svg.pptx
 ```
 
@@ -294,7 +317,7 @@ python3 scripts/svg_to_pptx.py <project_path> -s final
 - NEVER export directly from `svg_output/` — MUST export from `svg_final/` (use `-s final`)
 - NEVER add extra flags like `--only`
 
-**Re-run rule**: Any modification to `svg_output/` after post-processing has completed (including page revisions, additions, or deletions) requires re-running Steps 2 and 3. Step 1 only needs re-running if `notes/total.md` was also modified.
+**Re-run rule**: Any modification to `svg_output/` after post-processing has completed (including page revisions, additions, or deletions) requires re-running Steps 2–3. Step 1 only needs re-running if `notes/total.md` was also modified.
 
 ---
 

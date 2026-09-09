@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Recommend Presentation Studio templates, including Frontend Slides visual directions."""
 
 from __future__ import annotations

@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Presentation Studio project management helpers.
 
 Usage:
@@ -53,6 +53,23 @@ DOC_SUFFIXES = {
     ".ipynb", ".typ",                           # Notebooks / Typst
 }
 WECHAT_HOST_KEYWORDS = ("mp.weixin.qq.com", "weixin.qq.com")
+
+
+def read_utf8_text(path: Path) -> str:
+    """Read user text strictly as UTF-8, accepting and removing one leading BOM."""
+    raw = path.read_bytes()
+    if raw.startswith(b"\xef\xbb\xbf"):
+        raw = raw[3:]
+    try:
+        text = raw.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise RuntimeError(
+            f"Text source is not valid UTF-8: {path} "
+            f"(byte {exc.start}: {exc.reason})"
+        ) from exc
+    if "\ufffd" in text:
+        raise RuntimeError(f"Text source contains U+FFFD replacement characters: {path}")
+    return text
 
 
 def _curl_cffi_available() -> bool:
@@ -294,8 +311,8 @@ class ProjectManager:
 
     def _normalize_text_source(self, source_path: Path, sources_dir: Path) -> Path:
         target = self._ensure_unique_path(sources_dir / f"{source_path.stem}.md")
-        content = source_path.read_text(encoding="utf-8", errors="replace")
-        target.write_text(content, encoding="utf-8")
+        content = read_utf8_text(source_path)
+        target.write_text(content, encoding="utf-8", newline="\n")
         return target
 
     def _canonicalize_markdown_content(self, content: str) -> str:
@@ -306,7 +323,7 @@ class ProjectManager:
         return canonical.strip()
 
     def _find_equivalent_markdown(self, source_path: Path, sources_dir: Path) -> Path | None:
-        source_content = source_path.read_text(encoding="utf-8", errors="replace")
+        source_content = read_utf8_text(source_path)
         canonical_source = self._canonicalize_markdown_content(source_content)
 
         for existing in sorted(sources_dir.iterdir()):
@@ -318,7 +335,7 @@ class ProjectManager:
             except FileNotFoundError:
                 pass
 
-            existing_content = existing.read_text(encoding="utf-8", errors="replace")
+            existing_content = read_utf8_text(existing)
             if self._canonicalize_markdown_content(existing_content) == canonical_source:
                 return existing
 
@@ -339,7 +356,7 @@ class ProjectManager:
         if original_asset_dirname == imported_asset_dirname:
             return
 
-        content = markdown_path.read_text(encoding="utf-8", errors="replace")
+        content = read_utf8_text(markdown_path)
         updated = content.replace(f"{original_asset_dirname}/", f"{imported_asset_dirname}/")
         if updated != content:
             markdown_path.write_text(updated, encoding="utf-8")
@@ -350,11 +367,13 @@ class ProjectManager:
         sources_dir: Path,
         move: bool,
     ) -> tuple[Path, Path | None, str | None]:
+        normalized_content = read_utf8_text(source_path)
         archived_markdown = self._copy_or_move_file(
             source_path,
             sources_dir / source_path.name,
             move=move,
         )
+        archived_markdown.write_text(normalized_content, encoding="utf-8", newline="\n")
 
         asset_dir = self._companion_asset_dir(source_path)
         if asset_dir is None:

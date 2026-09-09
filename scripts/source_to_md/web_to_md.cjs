@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * web_to_md.cjs - Web Page to Markdown Converter (Enhanced)
  *

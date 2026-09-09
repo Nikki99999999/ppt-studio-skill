@@ -1,4 +1,4 @@
-﻿# Executor Common Guidelines
+# Executor Common Guidelines
 
 > Style-specific content is in the corresponding `executor-{style}.md`. Technical constraints are in shared-standards.md.
 
@@ -85,10 +85,11 @@ Before drawing each page, look up its entry in `page_rhythm` (key format `P<NN>`
 - **Main-agent ownership**: SVG generation must be performed by the current main agent, not delegated to sub-agents, because each page depends on shared upstream context and cross-page visual continuity
 - **Independent audit ownership**: after content, visuals, and speaker notes are complete and automated checks pass, dispatch one read-only sub-agent for a unified content-and-visual audit. The sub-agent may inspect project artifacts and reports, but must not generate, patch, or continue the deck.
 - **Generation rhythm**: First lock the global design context, then generate pages sequentially one by one in the same continuous context; grouped page batches (for example, 5 pages at a time) are not allowed
+- **UTF-8 artifact discipline**: write SVGs and notes as UTF-8 without BOM; never pipe literal CJK through a shell whose encoding is not guaranteed. Run `artifact_encoding_checker.py` before the content/SVG checks. `finalize_svg.py` automatically validates rewritten `svg_final/` and fails on encoding errors. Encoding findings are hard errors.
 - **Phased batch generation** (recommended):
   1. **Visual Construction Phase**: Generate all SVG pages continuously in sequential page order, ensuring high consistency in design style and layout coordinates (Visual Consistency)
   2. **Logic Construction Phase**: After SVG generation, batch-generate speaker notes to ensure narrative coherence (Narrative Continuity).
-  3. **Unified Automated Quality Gate**: run the final content checker and `python3 scripts/svg_quality_checker.py <project_path>` against `svg_output/`; run the template aesthetic checker when applicable. Any error must be fixed and the affected checker rerun. Do NOT defer SVG checking to after `finalize_svg.py` because finalize rewrites SVG and can mask violations.
+  3. **Unified Automated Quality Gate**: run the artifact encoding checker, final content checker, and `${PYTHON} scripts/svg_quality_checker.py <project_path>` against `svg_output/`; run the template aesthetic checker when applicable. Any error must be fixed and the affected checker rerun. Do NOT defer SVG checking to after `finalize_svg.py` because finalize rewrites SVG and can mask violations.
   4. **Unified Independent Audit Gate**: dispatch one read-only sub-agent to audit content, sources, speaker notes, generated SVGs, hierarchy, layout, template aesthetics, and spec/rhythm consistency together. If actionable issues are found, the main agent fixes them, reruns affected checks, and repeats the audit after material changes. If sub-agents are unavailable, stop before export; manual self-review does not satisfy the gate.
 - **Technical specifications**: See [shared-standards.md](shared-standards.md) for SVG technical constraints and PPT compatibility rules
 - **Visual depth — through restraint, not abundance**: Layered depth comes from rhythm (flat vs lifted, dense vs spacious), not from applying shadows everywhere. Use shadow on at most 2–3 genuinely floating elements per page (cards on photos, primary CTA, overlays); keep section panels, peer-grid cards, dividers, and body-text containers flat. Reach for typography weight, spacing, accent bars, and subtle background tints **before** adding shadow. See shared-standards.md §6 for full rules including single-light-source and elevation tiers.

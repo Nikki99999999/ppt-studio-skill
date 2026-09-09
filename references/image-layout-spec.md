@@ -1,4 +1,4 @@
-﻿> See shared-standards.md for common technical constraints.
+> See shared-standards.md for common technical constraints.
 
 # Image Layout Specification
 
