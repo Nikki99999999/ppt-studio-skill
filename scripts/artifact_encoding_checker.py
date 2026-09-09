@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate Presentation Studio text artifacts as clean UTF-8 without BOM.
+"""Validate PPT Studio text artifacts as clean UTF-8 without BOM.
 
 The checker is intentionally project-wide: SVG validation alone cannot protect
 Markdown, JSON, speaker notes, prompts, or text reports from shell/locale

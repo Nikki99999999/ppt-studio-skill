@@ -164,11 +164,11 @@ Strategist chooses the icon approach and approved inventory. Executor only imple
 
 **Searching for icons** — use terminal, zero token cost:
 ```bash
-ls skills/presentation-studio/templates/icons/chunk-filled/ | grep home
-ls skills/presentation-studio/templates/icons/tabler-filled/ | grep home
-ls skills/presentation-studio/templates/icons/tabler-outline/ | grep chart
-ls skills/presentation-studio/templates/icons/phosphor-duotone/ | grep house
-ls skills/presentation-studio/templates/icons/simple-icons/ | grep github
+ls skills/ppt-studio/templates/icons/chunk-filled/ | grep home
+ls skills/ppt-studio/templates/icons/tabler-filled/ | grep home
+ls skills/ppt-studio/templates/icons/tabler-outline/ | grep chart
+ls skills/ppt-studio/templates/icons/phosphor-duotone/ | grep house
+ls skills/ppt-studio/templates/icons/simple-icons/ | grep github
 ```
 
 **Abstract concept → icon name** (names for `chunk-filled`; tabler libraries use their own equivalents — verify with `ls | grep`):

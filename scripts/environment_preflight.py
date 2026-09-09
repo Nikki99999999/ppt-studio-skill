@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Resolve and validate Presentation Studio's runtime without fixed host paths."""
+"""Resolve and validate PPT Studio's runtime without fixed host paths."""
 
 from __future__ import annotations
 

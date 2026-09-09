@@ -91,4 +91,4 @@ When the user later asks to publish or push the repository:
 3. Promote only explicitly approved, sanitized packages into `templates/layouts/`.
 4. Remove customer names, confidential text, personal data, and restricted assets.
 5. Re-run SVG quality, aesthetic, content, and independent sub-agent audits.
-6. Update the repository and Skill name to `presentation-studio`.
+6. Update the repository and Skill name to `ppt-studio`.

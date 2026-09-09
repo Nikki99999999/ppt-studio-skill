@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Presentation Studio - Image Orientation Management Tool
+PPT Studio - Image Orientation Management Tool
 
 Provides visual image orientation filtering, fix code generation,
 and batch image rotation functionality.
@@ -31,7 +31,7 @@ class ImageRotator:
 
     @staticmethod
     def _repo_root() -> Path:
-        # scripts/rotate_images.py -> skills/presentation-studio/
+        # scripts/rotate_images.py -> skills/ppt-studio/
         return Path(__file__).resolve().parent.parent
 
     @staticmethod

@@ -411,7 +411,7 @@ def audit_directory(target: str | Path) -> list[dict]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Audit SVG geometry layout issues.")
-    parser.add_argument("target", help="SVG file, svg_output directory, or presentation-studio project directory")
+    parser.add_argument("target", help="SVG file, svg_output directory, or ppt-studio project directory")
     parser.add_argument("--json", action="store_true", help="Print machine-readable JSON")
     args = parser.parse_args()
 

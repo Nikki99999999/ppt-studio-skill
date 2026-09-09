@@ -1,4 +1,4 @@
-# Presentation Studio Skill
+# PPT Studio Skill
 
 面向 AI IDE 的演示文稿生成 skill，用于从 PDF、DOCX、URL、Markdown 或用户直接输入的内容生成原生可编辑 PPTX。
 
@@ -27,7 +27,7 @@ SKILL.md
 然后按流程制作 PPT。典型提示：
 
 ```text
-请用 Presentation Studio Skill 做一份 6 页中文 PPT。
+请用 PPT Studio Skill 做一份 6 页中文 PPT。
 先完成 Nine Confirmations，并在生成正式内容、设计稿、图片、SVG 或 PPTX 前，把 Ghost Deck 大纲给我确认。
 ```
 

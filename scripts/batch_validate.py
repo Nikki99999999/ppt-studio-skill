@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Presentation Studio - Batch Project Validation Tool
+PPT Studio - Batch Project Validation Tool
 
 Checks the structural integrity and compliance of multiple projects at once.
 
@@ -218,7 +218,7 @@ class BatchValidator:
             output_file: Output file path
         """
         with open(output_file, 'w', encoding='utf-8') as f:
-            f.write("Presentation Studio Project Validation Report\n")
+            f.write("PPT Studio Project Validation Report\n")
             f.write("=" * 80 + "\n\n")
 
             for result in self.results:
@@ -257,7 +257,7 @@ class BatchValidator:
 def main() -> None:
     """Run the CLI entry point."""
     if len(sys.argv) < 2:
-        print("Presentation Studio - Batch Project Validation Tool\n")
+        print("PPT Studio - Batch Project Validation Tool\n")
         print("Usage:")
         print("  python3 scripts/batch_validate.py <directory>")
         print("  python3 scripts/batch_validate.py <dir1> <dir2> ...")

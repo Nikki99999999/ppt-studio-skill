@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Presentation Studio - Project Utilities Module
+PPT Studio - Project Utilities Module
 
 Provides common functions for project information parsing and validation,
 reusable by other tools.

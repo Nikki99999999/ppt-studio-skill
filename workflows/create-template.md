@@ -57,7 +57,7 @@ ls -la "<reference_source_path>"
 If the reference source is a `.pptx` template file, use the unified preparation helper:
 
 ```bash
-python3 skills/presentation-studio/scripts/pptx_template_import.py "<reference_template.pptx>"
+python3 skills/ppt-studio/scripts/pptx_template_import.py "<reference_template.pptx>"
 ```
 
 This helper performs the full PPTX reference preparation in one workspace:
@@ -118,7 +118,7 @@ Interpretation rule:
 - Before creating any template file, the agent MUST finish reading all SVG files listed in `reference_svg_selection.json`
 - The agent MUST explicitly report the read slide indexes before starting template generation
 
-Do **not** treat the imported PPTX or exported slide SVGs as direct final template assets. The goal is to reconstruct a clean, maintainable Presentation Studio template package, not to perform 1:1 shape translation.
+Do **not** treat the imported PPTX or exported slide SVGs as direct final template assets. The goal is to reconstruct a clean, maintainable PPT Studio template package, not to perform 1:1 shape translation.
 
 ---
 
@@ -190,13 +190,13 @@ The role should use the import output to anchor objective facts such as theme co
 ## Step 5: Validate Template Assets
 
 ```bash
-ls -la "skills/presentation-studio/templates/layouts/<template_id>"
+ls -la "skills/ppt-studio/templates/layouts/<template_id>"
 ```
 
 Run SVG validation on the template directory:
 
 ```bash
-python3 skills/presentation-studio/scripts/svg_quality_checker.py "skills/presentation-studio/templates/layouts/<template_id>" --format <canvas_format>
+python3 skills/ppt-studio/scripts/svg_quality_checker.py "skills/ppt-studio/templates/layouts/<template_id>" --format <canvas_format>
 ```
 
 **Checklist**:
@@ -217,7 +217,7 @@ This step is a **hard gate**. Do not register the template into the library inde
 For a customer-uploaded template, register privately:
 
 ```bash
-python3 skills/presentation-studio/scripts/customer_template_library.py register \
+python3 skills/ppt-studio/scripts/customer_template_library.py register \
   --template-dir "projects/<project>/templates/<template_id>" \
   --id "<template_id>" \
   --label "<display_name>" \
@@ -231,7 +231,7 @@ This writes `provenance.json` and updates the ignored private index. Do not manu
 
 For an explicitly approved public template:
 
-Add a top-level entry to `skills/presentation-studio/templates/layouts/layouts_index.json`. The file is a flat map of `template_id → { label, summary, keywords }`:
+Add a top-level entry to `skills/ppt-studio/templates/layouts/layouts_index.json`. The file is a flat map of `template_id → { label, summary, keywords }`:
 
 ```json
 "<template_id>": {
@@ -253,7 +253,7 @@ Also sync the summary table in `templates/layouts/README.md` (the human-facing i
 ## Template Creation Complete
 
 **Template Name**: <template_id> (<display_name>)
-**Template Path**: `skills/presentation-studio/templates/layouts/<template_id>/`
+**Template Path**: `skills/ppt-studio/templates/layouts/<template_id>/`
 **Category**: <category>
 **Canvas Format**: <canvas_format>
 **Library Registration**: Private customer library / Public library

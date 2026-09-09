@@ -1,6 +1,6 @@
 # Project Tools
 
-Project tools create, validate, and inspect the standard Presentation Studio workspace.
+Project tools create, validate, and inspect the standard PPT Studio workspace.
 
 ## `project_manager.py`
 

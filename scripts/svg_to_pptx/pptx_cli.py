@@ -21,7 +21,7 @@ def main() -> None:
     )
 
     parser = argparse.ArgumentParser(
-        description='Presentation Studio - SVG to PPTX Tool (Office Compatibility Mode)',
+        description='PPT Studio - SVG to PPTX Tool (Office Compatibility Mode)',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=f'''
 Examples:
@@ -161,7 +161,7 @@ Speaker notes (enabled by default):
     # --- Native shapes version (primary) ---
     if gen_native:
         if verbose:
-            print("Presentation Studio - SVG to PPTX Tool")
+            print("PPT Studio - SVG to PPTX Tool")
             print("=" * 50)
             print(f"  Project path: {project_path}")
             print(f"  SVG directory: {source_dir_name}")
@@ -181,7 +181,7 @@ Speaker notes (enabled by default):
             if gen_native:
                 print()
                 print("-" * 50)
-            print("Presentation Studio - SVG to PPTX Tool (SVG Reference)")
+            print("PPT Studio - SVG to PPTX Tool (SVG Reference)")
             print("=" * 50)
             print(f"  Project path: {project_path}")
             print(f"  SVG directory: {source_dir_name}")

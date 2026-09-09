@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Presentation Studio - SVG Quality Check Tool
+PPT Studio - SVG Quality Check Tool
 
 Checks whether SVG files comply with project technical specifications.
 
@@ -778,7 +778,7 @@ class SVGQualityChecker:
     def export_report(self, output_file: str = 'svg_quality_report.txt'):
         """Export check report"""
         with open(output_file, 'w', encoding='utf-8') as f:
-            f.write("Presentation Studio SVG Quality Check Report\n")
+            f.write("PPT Studio SVG Quality Check Report\n")
             f.write("=" * 80 + "\n\n")
 
             for result in self.results:
@@ -816,7 +816,7 @@ class SVGQualityChecker:
 def main() -> None:
     """Run the CLI entry point."""
     if len(sys.argv) < 2:
-        print("Presentation Studio - SVG Quality Check Tool\n")
+        print("PPT Studio - SVG Quality Check Tool\n")
         print("Usage:")
         print("  python3 scripts/svg_quality_checker.py <svg_file>")
         print("  python3 scripts/svg_quality_checker.py <directory>")

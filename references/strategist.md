@@ -114,7 +114,7 @@ See [`../templates/icons/README.md`](../templates/icons/README.md) for the curre
 >    - **`phosphor-duotone`** — duotone; main shape + 20% opacity backplate; medium weight, layered, contemporary
 >    - ⚠️ **One presentation = one stylistic library** for generic icons (home, chart, users, etc.). Mixing `chunk-filled` / `tabler-filled` / `tabler-outline` / `phosphor-duotone` is FORBIDDEN. If the chosen library lacks an exact icon, find the closest alternative **within that same library**.
 >    - **Brand-logo exception**: `simple-icons` is NOT a stylistic library. Add it to the deck's icon inventory **only when** the deck genuinely contains real company / product / service brand marks (customer logos, tech-stack icons, social handles). Never substitute it for a missing generic icon.
-> 2. Search for icon availability: `ls skills/presentation-studio/templates/icons/<chosen-library>/ | grep <keyword>`
+> 2. Search for icon availability: `ls skills/ppt-studio/templates/icons/<chosen-library>/ | grep <keyword>`
 > 3. Use the verified filename (without `.svg`) as the icon name
 > 4. Always include the library prefix (e.g., `chunk-filled/home` or `tabler-filled/home`)
 > 5. List the final icon inventory and chosen library in the Design Spec; Executor may only use icons from this list

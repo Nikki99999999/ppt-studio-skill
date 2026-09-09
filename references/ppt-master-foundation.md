@@ -1,6 +1,6 @@
 # PPT Master Foundation
 
-Read this reference when explaining what Presentation Studio inherits from PPT Master or when comparing the two systems.
+Read this reference when explaining what PPT Studio inherits from PPT Master or when comparing the two systems.
 
 ## Primary Sources
 

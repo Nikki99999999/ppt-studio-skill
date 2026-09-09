@@ -301,4 +301,4 @@ Templates use `{{PLACEHOLDER}}` format placeholders:
 
 ---
 
-_This specification is based on Google Material Design principles, adapted for Presentation Studio project requirements_
+_This specification is based on Google Material Design principles, adapted for PPT Studio project requirements_

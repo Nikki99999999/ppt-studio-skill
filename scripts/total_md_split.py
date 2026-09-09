@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Presentation Studio - Speaker Notes Splitting Tool
+PPT Studio - Speaker Notes Splitting Tool
 
 Splits the total.md speaker notes file into multiple individual notes files,
 each corresponding to one SVG page.
@@ -273,7 +273,7 @@ def split_notes(notes: dict[str, str], output_dir: Path, verbose: bool = True) -
 def main() -> None:
     """Run the CLI entry point."""
     parser = argparse.ArgumentParser(
-        description='Presentation Studio - Speaker Notes Splitting Tool',
+        description='PPT Studio - Speaker Notes Splitting Tool',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog='''
 Examples:
@@ -309,7 +309,7 @@ Features:
     verbose = not args.quiet
 
     if verbose:
-        print("Presentation Studio - Speaker Notes Splitting Tool")
+        print("PPT Studio - Speaker Notes Splitting Tool")
         print("=" * 50)
         print(f"  Project path: {project_path}")
         print(f"  Output directory: {output_dir}")

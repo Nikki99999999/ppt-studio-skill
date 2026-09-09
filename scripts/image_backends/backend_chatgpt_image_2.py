@@ -61,7 +61,7 @@ def _resolve_tool_path() -> Path:
         return path
 
     # Default path: prefer the shared workspace tool, then the legacy skill copy.
-    # Layout: .claude/skills/presentation-studio/skills/presentation-studio/scripts/image_backends/backend_chatgpt_image_2.py
+    # Layout: .claude/skills/ppt-studio/skills/ppt-studio/scripts/image_backends/backend_chatgpt_image_2.py
     # Target: <workspace>/context-infrastructure/tools/chatgpt_image.js
     here = Path(__file__).resolve()
     workspace_root = here.parents[7]

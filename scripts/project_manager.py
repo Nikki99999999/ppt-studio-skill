@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Presentation Studio project management helpers.
+"""PPT Studio project management helpers.
 
 Usage:
     python3 scripts/project_manager.py init <project_name> [--format ppt169] [--dir projects]
@@ -461,7 +461,7 @@ class ProjectManager:
             elif is_within_path(source_path, REPO_ROOT):
                 effective_move = True
                 print(
-                    f"note: {source_path} is inside the presentation-studio repo; moved "
+                    f"note: {source_path} is inside the ppt-studio repo; moved "
                     f"(not copied) to avoid accidental commit. Pass --copy to override.",
                     file=sys.stderr,
                 )

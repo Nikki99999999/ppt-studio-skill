@@ -1,4 +1,4 @@
-# Presentation Studio Dependencies / Presentation Studio 依赖
+# PPT Studio Dependencies / PPT Studio 依赖
 # =============================================
 #
 # Most tools use only the Python standard library. Below are optional dependencies.
@@ -15,7 +15,7 @@
 PyYAML>=6.0.1
 
 # ─────────────────────────────────────────────────────────────
-# SVG to PPTX tool / SVG 转 PPTX 工具 (skills/presentation-studio/scripts/svg_to_pptx.py)
+# SVG to PPTX tool / SVG 转 PPTX 工具 (skills/ppt-studio/scripts/svg_to_pptx.py)
 # ─────────────────────────────────────────────────────────────
 # Batch-convert SVG files to PowerPoint presentations.
 # 用于将 SVG 文件批量转换为 PowerPoint 演示文稿
@@ -37,14 +37,14 @@ svglib>=1.5.0
 reportlab>=4.0.0
 
 # ─────────────────────────────────────────────────────────────
-# PDF to Markdown tool / PDF 转 Markdown 工具 (skills/presentation-studio/scripts/source_to_md/pdf_to_md.py)
+# PDF to Markdown tool / PDF 转 Markdown 工具 (skills/ppt-studio/scripts/source_to_md/pdf_to_md.py)
 # ─────────────────────────────────────────────────────────────
 # Converts PDF to Markdown with text, image, and table extraction.
 # 用于将 PDF 文件转换为 Markdown 格式，支持文本、图片、表格提取
 PyMuPDF>=1.23.0
 
 # ─────────────────────────────────────────────────────────────
-# Document to Markdown tool / 文档转 Markdown 工具 (skills/presentation-studio/scripts/source_to_md/doc_to_md.py)
+# Document to Markdown tool / 文档转 Markdown 工具 (skills/ppt-studio/scripts/source_to_md/doc_to_md.py)
 # ─────────────────────────────────────────────────────────────
 # Native (pure-Python) paths — no external binary required:
 # 原生路径（纯 Python，无需外部程序）：
@@ -78,7 +78,7 @@ Pillow>=9.0.0
 numpy>=1.20.0
 
 # ─────────────────────────────────────────────────────────────
-# Web to Markdown tool / 网页转 Markdown 工具 (skills/presentation-studio/scripts/source_to_md/web_to_md.py)
+# Web to Markdown tool / 网页转 Markdown 工具 (skills/ppt-studio/scripts/source_to_md/web_to_md.py)
 # ─────────────────────────────────────────────────────────────
 requests>=2.31.0
 beautifulsoup4>=4.12.0
@@ -91,7 +91,7 @@ beautifulsoup4>=4.12.0
 curl_cffi>=0.7.0
 
 # ─────────────────────────────────────────────────────────────
-# AI image generation tool / AI 图片生成工具 (skills/presentation-studio/scripts/image_gen.py)
+# AI image generation tool / AI 图片生成工具 (skills/ppt-studio/scripts/image_gen.py)
 # ─────────────────────────────────────────────────────────────
 # Gemini backend / Gemini 后端 (IMAGE_BACKEND=gemini)
 google-genai>=1.0.0

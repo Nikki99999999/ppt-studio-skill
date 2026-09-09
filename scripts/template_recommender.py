@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recommend Presentation Studio templates, including Frontend Slides visual directions."""
+"""Recommend PPT Studio templates, including Frontend Slides visual directions."""
 
 from __future__ import annotations
 
@@ -242,7 +242,7 @@ def recommend(args: argparse.Namespace) -> dict[str, Any]:
         },
         "recommendations": candidates[: args.top],
         "fallback_template": "frontend_slides_bold",
-        "note": "Use the selected visual direction as design language; copy templates/layouts/frontend_slides_bold for Presentation Studio SVG placeholders.",
+        "note": "Use the selected visual direction as design language; copy templates/layouts/frontend_slides_bold for PPT Studio SVG placeholders.",
     }
 
 
@@ -268,7 +268,7 @@ def main() -> int:
         print(f"   mood={', '.join(item['mood'])}; density={item['density']}; formality={item['formality']}; scheme={item['scheme']}")
         print(f"   best_for={item['best_for']}")
         print(f"   reasons={', '.join(item['reasons']) or 'general fallback'}")
-    print(f"Fallback Presentation Studio template: {result['fallback_template']}")
+    print(f"Fallback PPT Studio template: {result['fallback_template']}")
     return 0
 
 

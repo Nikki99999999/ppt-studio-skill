@@ -1,6 +1,6 @@
 # Shared Technical Standards
 
-Common technical constraints for Presentation Studio, eliminating cross-role file duplication.
+Common technical constraints for PPT Studio, eliminating cross-role file duplication.
 
 ---
 

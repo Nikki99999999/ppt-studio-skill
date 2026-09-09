@@ -5,23 +5,23 @@ Use this reference when the user wants more stylish templates, mentions Frontend
 Source observed: Zara Zhang (`zarazhangrui`) / `frontend-slides`:
 https://github.com/zarazhangrui/frontend-slides
 
-Observed source facts: the upstream workflow generates three visual previews, lets the user pick a direction, and includes 12 safe preset styles plus 34 optional bold design systems. Presentation Studio translates that selection model into PPT-safe SVG assets instead of using the web runtime.
+Observed source facts: the upstream workflow generates three visual previews, lets the user pick a direction, and includes 12 safe preset styles plus 34 optional bold design systems. PPT Studio translates that selection model into PPT-safe SVG assets instead of using the web runtime.
 
 ## Attribution Boundary
 
-- Credit Zara Zhang's `zarazhangrui/frontend-slides` for the design-template aesthetics, visual-direction selection pattern, and page-rhythm inspiration that Presentation Studio studies and adapts.
+- Credit Zara Zhang's `zarazhangrui/frontend-slides` for the design-template aesthetics, visual-direction selection pattern, and page-rhythm inspiration that PPT Studio studies and adapts.
 - Do not describe customer-template persistence as a Zara or Frontend Slides feature.
-- Presentation Studio's private customer-template registration, validation, indexing, retrieval, and reuse workflow is an added capability owned by this skill.
+- PPT Studio's private customer-template registration, validation, indexing, retrieval, and reuse workflow is an added capability owned by this skill.
 
 ## What To Reuse
 
 - Reuse the selection pattern: recommend exactly three visual directions, then let the user pick.
 - Reuse the aesthetic taxonomy: safe presets plus bold templates, each with mood, formality, density, scheme, best-for, and avoid-for.
-- Reuse the fixed-stage discipline conceptually, but map it to Presentation Studio's `ppt169` SVG viewBox `0 0 1280 720`.
+- Reuse the fixed-stage discipline conceptually, but map it to PPT Studio's `ppt169` SVG viewBox `0 0 1280 720`.
 
 ## What Not To Reuse Directly
 
-- Do not embed the HTML runtime in Presentation Studio output.
+- Do not embed the HTML runtime in PPT Studio output.
 - Do not use JavaScript, CSS classes, animations, `foreignObject`, or browser-only layout behavior in final SVG templates.
 - Do not copy a full template pack into the generation context. Read `templates/frontend_slides/design_catalog.json`, shortlist candidates, and load details only for the selected direction.
 
@@ -38,7 +38,7 @@ Present the top three as visual directions:
 1. recommended style name
 2. what it is good for
 3. what it should avoid
-4. fallback Presentation Studio template package: `frontend_slides_bold`
+4. fallback PPT Studio template package: `frontend_slides_bold`
 
 If the user chooses one of the directions, copy `templates/layouts/frontend_slides_bold/` into the project templates and encode the selected visual direction in `design_spec.md` and `spec_lock.md`.
 

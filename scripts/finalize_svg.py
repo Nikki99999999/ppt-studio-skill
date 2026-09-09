@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Presentation Studio - SVG Post-processing Tool (Unified Entry Point)
+PPT Studio - SVG Post-processing Tool (Unified Entry Point)
 
 Processes SVG files from svg_output/ and outputs them to svg_final/.
 By default, all processing steps are executed. You can also specify
@@ -264,7 +264,7 @@ def finalize_project(
 def main() -> None:
     """Run the CLI entry point."""
     parser = argparse.ArgumentParser(
-        description='Presentation Studio - SVG Post-processing Tool',
+        description='PPT Studio - SVG Post-processing Tool',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog='''
 Examples:

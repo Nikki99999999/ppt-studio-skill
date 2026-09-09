@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Presentation Studio - Unified Configuration Management Module
+PPT Studio - Unified Configuration Management Module
 
 Centrally manages all project configuration items to ensure consistency and maintainability.
 
@@ -583,7 +583,7 @@ def main() -> None:
     import sys
 
     if len(sys.argv) < 2:
-        print("Presentation Studio - Configuration Management Tool\n")
+        print("PPT Studio - Configuration Management Tool\n")
         print("Usage:")
         print("  python3 scripts/config.py list-formats     # List all canvas formats")
         print("  python3 scripts/config.py list-colors      # List all color schemes")

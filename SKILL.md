@@ -1,9 +1,9 @@
 ---
-name: presentation-studio
-description: "创建、重构或转换演示文稿，将报告、演讲稿、PDF、Word、Markdown、网页或文本制作成可编辑 PPTX，并创建、分析和沉淀可复用演示模板。用户提到 Presentation Studio，要求资料转 PPT、系统性重做演示稿、按参考模板制作整套 PPT，或继续维护已有 Presentation Studio 项目时使用。单纯咨询演讲建议或与该项目无关的局部文件编辑不触发完整生产流程。"
+name: ppt-studio
+description: "创建、重构或转换演示文稿，将报告、演讲稿、PDF、Word、Markdown、网页或文本制作成可编辑 PPTX，并创建、分析和沉淀可复用演示模板。用户提到 PPT Studio，要求资料转 PPT、系统性重做演示稿、按参考模板制作整套 PPT，或继续维护已有 PPT Studio 项目时使用。单纯咨询演讲建议或与该项目无关的局部文件编辑不触发完整生产流程。"
 ---
 
-# Presentation Studio
+# PPT Studio
 
 Create editable PPTX through source processing, outline approval, detailed content, SVG authoring, unified QA, and export.
 

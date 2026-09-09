@@ -108,7 +108,7 @@ The imported PPTX is a **reference source**, not a direct conversion target.
 
 Do:
 - preserve brand assets, recurring backgrounds, and stable structural motifs
-- rebuild the layout into a clean SVG structure aligned with Presentation Studio constraints
+- rebuild the layout into a clean SVG structure aligned with PPT Studio constraints
 - simplify repeated decorative fragments into a smaller number of maintainable SVG elements
 - use a background image asset when the original decorative layer is too complex to recreate cleanly
 - prefer original exported assets such as `image1.png` over matched `inline_*` assets whenever AI normalization determines they represent the same visible image

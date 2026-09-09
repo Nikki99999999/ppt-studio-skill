@@ -4,7 +4,7 @@
     "name": "Frontend Slides",
     "repo": "https://github.com/zarazhangrui/frontend-slides",
     "observed_date": "2026-07-23",
-    "license_note": "Use as design inspiration and selection metadata; rebuild Presentation Studio SVG templates instead of copying HTML runtime code."
+    "license_note": "Use as design inspiration and selection metadata; rebuild PPT Studio SVG templates instead of copying HTML runtime code."
   },
   "policy": {
     "canvas": "ppt169",

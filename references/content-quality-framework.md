@@ -92,13 +92,13 @@ For Chinese decks, treat the Humanizer-zh-inspired review as a blocking release 
 
 ## 7.1 System-explanation decks
 
-When a deck explains Presentation Studio itself or compares it with PPT Master, read `references/ppt-master-foundation.md` and state the inherited foundation accurately:
+When a deck explains PPT Studio itself or compares it with PPT Master, read `references/ppt-master-foundation.md` and state the inherited foundation accurately:
 
-- Presentation Studio builds on PPT Master's SVG authoring layer and SVG-to-DrawingML compilation path.
+- PPT Studio builds on PPT Master's SVG authoring layer and SVG-to-DrawingML compilation path.
 - The real advantages are native PowerPoint editability, inspectable SVG source, reusable source files, local/open workflow, quality checks, and lower rework from a simpler authoring target.
 - Do not claim universal token savings unless a concrete benchmark is available. Use the bounded claim: SVG reduces authoring complexity and preserves a reusable source layer.
 
-When mentioning Frontend Slides, read `references/frontend-slides-design-pack.md` and keep the attribution boundary clear: Zara Zhang's `zarazhangrui/frontend-slides` inspired the design-template aesthetics and selection pattern; Presentation Studio adds private customer-template persistence, validation, indexing, retrieval, and reuse.
+When mentioning Frontend Slides, read `references/frontend-slides-design-pack.md` and keep the attribution boundary clear: Zara Zhang's `zarazhangrui/frontend-slides` inspired the design-template aesthetics and selection pattern; PPT Studio adds private customer-template persistence, validation, indexing, retrieval, and reuse.
 
 ## 7.2 Speech, briefing, and report-source decks
 

@@ -54,4 +54,4 @@ The `icons/` directory contains 11,600+ vector icons across five libraries:
 | `simple-icons` | brand logos (company / product marks) | 3400+ |
 
 - **Usage & style rules**: [icons/README.md](./icons/README.md)
-- **Search icons**: `ls skills/presentation-studio/templates/icons/<library>/ | grep <keyword>`
+- **Search icons**: `ls skills/ppt-studio/templates/icons/<library>/ | grep <keyword>`

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Presentation Studio - PPTX Animation Module
+PPT Studio - PPTX Animation Module
 
 Provides XML generation for slide transition effects and entrance animations.
 

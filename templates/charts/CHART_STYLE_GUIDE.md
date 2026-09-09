@@ -439,7 +439,7 @@ font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Micr
 ```bash
 # 一键校验
 f="your_chart.svg"
-xmllint --noout "skills/presentation-studio/templates/charts/$f" && echo "XML OK" || echo "XML FAIL"
-echo "Old colors:" && grep -c '#2C3E50\|#7F8C8D\|#95A5A6\|#5D6D7E\|#000000' "skills/presentation-studio/templates/charts/$f"
-echo "Small fonts:" && grep -c 'font-size="[0-9]"' "skills/presentation-studio/templates/charts/$f"
+xmllint --noout "skills/ppt-studio/templates/charts/$f" && echo "XML OK" || echo "XML FAIL"
+echo "Old colors:" && grep -c '#2C3E50\|#7F8C8D\|#95A5A6\|#5D6D7E\|#000000' "skills/ppt-studio/templates/charts/$f"
+echo "Small fonts:" && grep -c 'font-size="[0-9]"' "skills/ppt-studio/templates/charts/$f"
 ```
